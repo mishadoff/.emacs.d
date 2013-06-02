@@ -44,13 +44,19 @@
  (cons 'clojure-mode melpa)
  (cons 'clojure-test-mode melpa)
  (cons 'nrepl melpa)
- (cons 'smex melpa))
+ (cons 'smex melpa)
+ (cons 'color-theme melpa))
 
 ;; Smart M-x
 (require 'smex)
 (smex-initialize)
 
 ;; Appearance Related
+
+;; Sam Aaron's cyberpunk theme
+(require 'cyberpunk)
+(color-theme-cyberpunk)
+
 
 ;; Highlight parenthesis
 (show-paren-mode 1)
