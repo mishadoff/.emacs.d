@@ -43,7 +43,12 @@
 (packages-install
  (cons 'clojure-mode melpa)
  (cons 'clojure-test-mode melpa)
- (cons 'nrepl melpa))
+ (cons 'nrepl melpa)
+ (cons 'smex melpa))
+
+;; Smart M-x
+(require 'smex)
+(smex-initialize)
 
 ;; Appearance Related
 
@@ -67,3 +72,7 @@
   (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
                          '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
 (toggle-fullscreen)
+
+
+;; Key bindings
+(global-set-key (kbd "M-x") 'smex)
