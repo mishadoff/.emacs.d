@@ -3,11 +3,8 @@
 ;; "and he'd still see the matrix in his sleep, bright lattices of logic
 ;; unfolding across that colorless void..."
 ;; William Gibson, Neuromancer.
-;;
-
 (require 'color-theme)
 
-;;;###autoload
 (defun color-theme-cyberpunk ()
   "Cyberpunk colour theme by Sam Aaron."
   (interactive)
@@ -64,7 +61,7 @@
      (toolbar ((t (nil))))
      (underline ((nil (:underline nil))))
      (vertical-border ((t (:background "black" :foreground "gray10"))))
-     (zmacs-region ((t (:background "snow" :foreground "ble"))))
+     (zmacs-region ((t (:background "snow" :foreground "blue"))))
 
      (diff-added ((t (:foreground "green"))))
      (diff-removed ((t (:foreground "red"))))

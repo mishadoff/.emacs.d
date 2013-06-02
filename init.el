@@ -45,7 +45,8 @@
  (cons 'clojure-test-mode melpa)
  (cons 'nrepl melpa)
  (cons 'smex melpa)
- (cons 'color-theme melpa))
+ (cons 'color-theme melpa)
+ (cons 'rainbow-mode gnu))
 
 ;; Smart M-x
 (require 'smex)
