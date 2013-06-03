@@ -51,6 +51,7 @@
 
 ;; Install missing packages
 (packages-install
+ (cons 'markdown-mode melpa)
  (cons 'clojure-mode melpa)
  (cons 'clojure-test-mode melpa)
  (cons 'nrepl melpa)
@@ -127,3 +128,12 @@
 (setq column-number-mode t)
 
 (setq fill-column 80)
+
+;; Clojure mode
+(autoload 'clojure-mode "clojure-mode")
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+
+;; Markdown
+(autoload 'markdown-mode "markdown-mode")
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
