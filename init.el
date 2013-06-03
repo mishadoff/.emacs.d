@@ -56,7 +56,9 @@
  (cons 'nrepl melpa)
  (cons 'smex melpa)
  (cons 'color-theme melpa)
- (cons 'rainbow-mode gnu))
+ (cons 'rainbow-mode gnu)
+ (cons 'rainbow-delimiters melpa)
+ )
 
 ;; Smart M-x
 (require 'smex)
@@ -81,6 +83,10 @@
 
 ;; Highlight parenthesis
 (show-paren-mode 1)
+
+(require 'rainbow-delimiters)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
 
 ;; Highlight current line
 (global-hl-line-mode 1)
