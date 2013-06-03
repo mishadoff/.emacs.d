@@ -102,8 +102,7 @@
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 
-(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
+(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
 ;; Interactive commands
 (require 'ido)
@@ -113,6 +112,9 @@
       ido-case-fold nil
       ido-use-filename-at-point nil
       ido-max-prospects 10)
+
+;; Smart buffers list
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; keystrokes echo
 (setq echo-keystrokes 0.1)
