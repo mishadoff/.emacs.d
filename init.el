@@ -1,3 +1,13 @@
+;; Disable menu
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;; Disable toolbar
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+;; Disable scrollbar
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; Don't show emacs screen
+(setq inhibit-startup-message t)
+
 ;; Set path to .emacs.d
 (setq emacs-d (file-name-directory load-file-name))
 
@@ -52,25 +62,6 @@
 (require 'smex)
 (smex-initialize)
 
-;; Appearance Related
-
-;; Sam Aaron's cyberpunk theme
-(require 'cyberpunk)
-(color-theme-cyberpunk)
-
-
-;; Highlight parenthesis
-(show-paren-mode 1)
-
-;; Disable menu
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-
-;; Disable toolbar
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-
-;; Disable scrollbar
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
 ;; Toggle fullscreen mode
 (defun toggle-fullscreen ()
   (interactive)
@@ -83,3 +74,35 @@
 
 ;; Key bindings
 (global-set-key (kbd "M-x") 'smex)
+
+;; Sam Aaron's cyberpunk theme
+(require 'cyberpunk)
+(color-theme-cyberpunk)
+
+;; Highlight parenthesis
+(show-paren-mode 1)
+
+;; Highlight current line
+(global-hl-line-mode 1)
+
+;; Emacs server
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; Key bindings
+
+(global-set-key (kbd "<home>") 'beginning-of-buffer)
+(global-set-key (kbd "<end>") 'end-of-buffer)
+
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
+
+
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-case-fold nil
+      ido-use-filename-at-point nil
+      ido-max-prospects 10)
