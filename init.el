@@ -90,9 +90,6 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 
-;; Highlight current line
-(global-hl-line-mode 1)
-
 ;; Emacs server
 (require 'server)
 (unless (server-running-p)
@@ -105,6 +102,14 @@
 
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c u") 'uncomment-region)
+
+(global-set-key (kbd "S-<right>") 'windmove-right)
+(global-set-key (kbd "S-<left>") 'windmove-left)
+(global-set-key (kbd "S-<up>") 'windmove-up)
+(global-set-key (kbd "S-<down>") 'windmove-down)
+
+(global-set-key (kbd "C-<tab>") 'complete-symbol)
+
 
 ;; Interactive commands
 (require 'ido)
