@@ -108,7 +108,8 @@
 (global-set-key (kbd "S-<up>") 'windmove-up)
 (global-set-key (kbd "S-<down>") 'windmove-down)
 
-(global-set-key (kbd "C-<tab>") 'complete-symbol)
+(global-set-key (kbd "C-.") 'complete-symbol)
+(global-set-key (kbd "C-x b") 'ibuffer)
 
 
 ;; Interactive commands
