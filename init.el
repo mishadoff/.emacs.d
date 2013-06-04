@@ -14,6 +14,9 @@
 ;; Setup load path
 (add-to-list 'load-path emacs-d)
 
+;; Setup themes path
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
 ;; Setup dependencies path
 (setq site-lisp-dir (expand-file-name "site-lisp" emacs-d))
 
@@ -78,9 +81,7 @@
 ;; Key bindings
 (global-set-key (kbd "M-x") 'smex)
 
-;; Sam Aaron's cyberpunk theme
-(require 'cyberpunk)
-(color-theme-cyberpunk)
+(load-theme 'cyberpunk t)
 
 ;; Highlight parenthesis
 (show-paren-mode 1)
@@ -102,7 +103,8 @@
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
 
 ;; Interactive commands
 (require 'ido)
@@ -112,9 +114,6 @@
       ido-case-fold nil
       ido-use-filename-at-point nil
       ido-max-prospects 10)
-
-;; Smart buffers list
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; keystrokes echo
 (setq echo-keystrokes 0.1)
