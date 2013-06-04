@@ -62,6 +62,7 @@
  (cons 'color-theme melpa)
  (cons 'rainbow-mode gnu)
  (cons 'rainbow-delimiters melpa)
+ (cons 'undo-tree gnu)
  )
 
 ;; Smart M-x
@@ -78,13 +79,10 @@
 ;; (toggle-fullscreen)
 
 
-;; Key bindings
-(global-set-key (kbd "M-x") 'smex)
-
 (load-theme 'cyberpunk t)
 
 ;; Highlight parenthesis
-(show-paren-mode 1)
+;(show-paren-mode 1)
 
 (require 'rainbow-delimiters)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
@@ -97,20 +95,7 @@
 
 ;; Key bindings
 
-(global-set-key (kbd "<home>") 'beginning-of-buffer)
-(global-set-key (kbd "<end>") 'end-of-buffer)
-
-(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
-
-(global-set-key (kbd "S-<right>") 'windmove-right)
-(global-set-key (kbd "S-<left>") 'windmove-left)
-(global-set-key (kbd "S-<up>") 'windmove-up)
-(global-set-key (kbd "S-<down>") 'windmove-down)
-
-(global-set-key (kbd "C-.") 'complete-symbol)
-(global-set-key (kbd "C-x b") 'ibuffer)
-
+(require 'keyboard)
 
 ;; Interactive commands
 (require 'ido)
