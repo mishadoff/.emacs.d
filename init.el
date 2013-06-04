@@ -63,6 +63,7 @@
  (cons 'rainbow-mode gnu)
  (cons 'rainbow-delimiters melpa)
  (cons 'undo-tree gnu)
+ (cons 'magit marmalade)
  )
 
 ;; Smart M-x
@@ -82,11 +83,13 @@
 (load-theme 'cyberpunk t)
 
 ;; Highlight parenthesis
-;(show-paren-mode 1)
+(show-paren-mode 1)
 
 (require 'rainbow-delimiters)
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(require' undo-tree)
 
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'undo-tree-mode)
 
 ;; Emacs server
 (require 'server)

@@ -32,7 +32,10 @@
 
  '(region ((t (:background "gray30" ))))
  '(cursor ((t (:background "#00FF44" ))))
+
+ ;; Not working???
  '(show-paren-match-face ((t (:background "#4FB86B" :foreground "#FFFFFF"))))
+ '(show-paren-mismatch-face ((t (:background "#FF0000" :foreground "#FFFFFF"))))
 
  '(gui-element ((t (:background "gray10" :foreground "#96CBFE"))))
  '(mode-line ((t (:background "gray10" :foreground "#4c83ff"))))
@@ -96,9 +99,15 @@
 
  ;; Rainbow delimiters
  
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#6B6B6B"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#4D4D4D"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#4D4D4D"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "#3B3B3B"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#2A2A2A"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#4D4D4D"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#3B3B3B"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#2A2A2A"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#4D4D4D"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "#3B3B3B"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "#2A2A2A"))))
  '(rainbow-delimiters-unmatched-face ((t (:foreground "#FFFFFF" :background "#FF0000"))))
 
 

@@ -3,6 +3,8 @@
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 
+(global-set-key "\C-z" 'undo)
+
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 
 (global-set-key (kbd "S-<right>") 'windmove-right)
@@ -15,6 +17,5 @@
 (global-set-key (kbd "C-x b") 'ibuffer)
 (global-set-key (kbd "C-x u") 'undo-tree)
 (global-set-key (kbd "C-x q") 'save-buffers-kill-emacs)
-
 
 (provide 'keyboard)
