@@ -11,7 +11,7 @@
 
 (custom-theme-set-faces
  'cyberpunk
- '(default ((t (:foreground "#ffffff" :background "#000000" ))))
+ '(default ((t (:foreground "#ffffff" :background "#000000" :height 150 :width normal))))
  '(blue ((t (:foreground "blue"))))
  '(bold ((t (:bold t))))
  '(bold-italic ((t (:bold t))))
@@ -35,18 +35,24 @@
 
  ;; Not working???
  '(show-paren-match-face ((t (:background "#4FB86B" :foreground "#FFFFFF"))))
- '(show-paren-mismatch-face ((t (:background "#FF0000" :foreground "#FFFFFF"))))
+ '(show-paren-mismatch-face ((t (:background "#FF0000" ))))
 
  '(gui-element ((t (:background "gray10" :foreground "#96CBFE"))))
  '(mode-line ((t (:background "gray10" :foreground "#4c83ff"))))
  '(mode-line-inactive ((t (:background "gray10" :foreground "gray30"))))
 
+ ;; Undo-Tree
+ '(undo-tree-visualizer-active-branch-face ((t (:foreground "#4c83ff" :background "#000000"))))
+
+ ;; ISearch
+ '(isearch ((t (:background "#33FFCC" :foreground "#000000"))))
+ '(isearch-fail ((t (:background "#33FFCC" :foreground "#000000"))))
+ '(lazy-highlight ((t (:background "#FFFF00" :foreground "#000000"))))
+ 
+
 ;; TODO Configure
 
  '(highlight ((t (:background "DarkOrange"))))
- '(isearch ((t (:background "deep pink" :foreground "black"))))
- '(isearch-fail ((t (:background "red4"))))
- '(lazy-highlight ((t (:background "yellow" :foreground "black"))))
  '(next-error ((t (:background "deep pink" :foreground "black"))))
  '(query-replace ((t (:background "gray10"))))
  '(Highline-face ((t (:background "SeaGreen"))))
@@ -86,13 +92,15 @@
 
  ;; Interactive
 
- '(ido-first-match ((t (:foreground "deep pink" :background "black"))))
- '(ido-only-match ((t (:foreground "deep pink" :background "black"))))
+ '(ido-first-match ((t (:foreground "#33FFCC" :background "#000000"))))
+ '(ido-only-match ((t (:foreground "#33FFCC" :background "#000000"))))
  '(ido-subdir ((t (:foreground "gray60" :background "black"))))
  '(ido-indicator ((t (:foreground "black" :background "deep pink"))))
 
- '(match ((t (:foreground "deep pink" :background "blackn"))))
- '(minibuffer-prompt ((t (:foreground "#61CE3C" :background "black"))))
+ '(match ((t (:foreground "#33FFCC" :background "#000000"))))
+ '(minibuffer-prompt ((t (:foreground "#00FF00" :background "#000000"))))
+
+
  '(grep-match-face ((t (:foreground "black" :background "deep pink"))))
  '(grep-hit-face ((t (:foreground "black" :background "red"))))
  '(grep-context-face ((t (:foreground "black" :background "deep pink"))))
@@ -110,8 +118,6 @@
  '(rainbow-delimiters-depth-9-face ((t (:foreground "#2A2A2A"))))
  '(rainbow-delimiters-unmatched-face ((t (:foreground "#FFFFFF" :background "#FF0000"))))
 
-
- '(undo-tree-visualizer-active-branch-face ((t (:foreground "deep pink" :background "black"))))
  '(hl-sexp-face ((t (:background "grey9"))))
 
  '(browse-kill-ring-current-entry-face ((t (:background "gray10"))))
