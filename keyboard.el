@@ -18,4 +18,13 @@
 (global-set-key (kbd "C-x u") 'undo-tree)
 (global-set-key (kbd "C-x q") 'save-buffers-kill-emacs)
 
+;; mode specific keybindings
+
+(add-hook 'nrepl-mode-hook
+	  (lambda ()
+	    (define-key nrepl-mode-map 
+	      (kbd "C-c <deletechar>") 'nrepl-clear-buffer)
+	    (define-key nrepl-mode-map
+	      (kbd "C-c <pause>") 'nrepl-interrupt)))
+
 (provide 'keyboard)

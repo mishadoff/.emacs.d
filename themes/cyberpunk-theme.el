@@ -22,7 +22,7 @@
  '(font-lock-string-face ((t (:foreground "#0DBA19"))))
  '(font-lock-comment-face ((t (:foreground "#999999"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "#999999"))))
- '(font-lock-constant-face ((t (:foreground "#3F5C70"))))
+ '(font-lock-constant-face ((t (:foreground "#58E8D0"))))
  '(font-lock-function-name-face ((t (:foreground "#ffffff"))))
  '(font-lock-keyword-face ((t (:foreground "#5789FF"))))
  '(font-lock-type-face ((t (:foreground "#58E8D0"))))

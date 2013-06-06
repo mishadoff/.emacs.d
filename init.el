@@ -75,8 +75,9 @@
 
 (load-theme 'cyberpunk t)
 
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
+;; 
+;; (require 'maxframe)
+;; (add-hook 'window-setup-hook 'maximize-frame t)
 
 ;; Highlight parenthesis
 (show-paren-mode 1)
