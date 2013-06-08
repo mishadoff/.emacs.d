@@ -20,8 +20,10 @@
 ;; Setup themes path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
+;; SLIME must be installed
+
 ;; Setup dependencies path
-(setq site-lisp-dir (expand-file-name "site-lisp" emacs-d))
+;(setq site-lisp-dir (expand-file-name "site-lisp" emacs-d))
 
 ;; Setup repositories
 (require 'package)
@@ -66,8 +68,7 @@
  (cons 'rainbow-mode gnu)
  (cons 'rainbow-delimiters melpa)
  (cons 'undo-tree gnu)
- (cons 'magit marmalade)
- )
+ (cons 'magit marmalade))
 
 ;; Smart M-x
 (require 'smex)
@@ -114,12 +115,29 @@
 (set-terminal-coding-system 'utf-8) ; pretty
 (set-keyboard-coding-system 'utf-8) ; pretty
 (set-selection-coding-system 'utf-8) ; please
+(set-language-environment 'utf-8)
 (prefer-coding-system 'utf-8) ; with sugar on top
 
 (setq line-number-mode t)
 (setq column-number-mode t)
 
 (setq fill-column 80)
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq visible-bell t)
+
+(setq frame-title-format "emacs")
+
+;; Show time in buffer
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+ 		    'face 'egoge-display-time)))
+(display-time-mode 1)
+
+;; Mouse wheel scrolls the current buffer
+(mouse-wheel-mode t)
+
+;; Show empty lines
+(toggle-indicate-empty-lines)
 
 ;; Clojure mode
 (autoload 'clojure-mode "clojure-mode")
@@ -129,3 +147,6 @@
 (autoload 'markdown-mode "markdown-mode")
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+
+;; Lisp
+(setq inferior-lisp-program "/usr/bin/sbcl --noinform") ;; lisp must exist
