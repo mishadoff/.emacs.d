@@ -48,7 +48,12 @@
  '(isearch ((t (:background "#33FFCC" :foreground "#000000"))))
  '(isearch-fail ((t (:background "#33FFCC" :foreground "#000000"))))
  '(lazy-highlight ((t (:background "#FFFF00" :foreground "#000000"))))
- 
+
+ ;; ORG-mode
+ '(org-date ((t (:foreground "#4c83ff" :underline t))))
+ '(org-done ((t (:bold t :weight bold :foreground "green"))))
+ '(org-todo ((t (:bold t :foreground "red" :weight bold))))
+
 
 ;; TODO Configure
 

@@ -148,5 +148,8 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
+;; Additional Languages
+
 ;; Lisp
+;; M-x run-lisp
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform") ;; lisp must exist
