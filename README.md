@@ -9,7 +9,7 @@ Prefixed with `C-x`.
 * `C-x (` start defining macro
 * `C-x )` finish defining macro
 * `C-x e` run macro
-* `C-x g` **TODO** magit
+* `C-x g` git-status (*magit*)
 * `C-x h` **TODO** replace (select all)
 * `C-x k` kill current buffer
 * `C-x l` **TODO** replace (calculate lines)
@@ -17,7 +17,7 @@ Prefixed with `C-x`.
 * `C-x o` switch to other buffer
 * `C-x s` **TODO** replace (save all)
 * `C-x u` history of buffer changes in a form of tree (*undo-tree*)
-* `C-x z` **TODO** run terminal (*Eshell*)
+* `C-x z` run terminal (*Eshell*)
 * `C-x 0` close this window
 * `C-x 1` close all but this
 * `C-x 2` split horizontally
@@ -42,6 +42,7 @@ Prefixed with `C-x`.
 * `D` delete file/folder
 * `+` new folder
 * `C` copy file/folder
+* `g` refresh folder
 * `q` close folder
 * `^` Go to root folder
 

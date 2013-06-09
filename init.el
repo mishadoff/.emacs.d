@@ -20,9 +20,6 @@
 ;; Setup themes path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-;; SLIME must be installed
-
-;; Setup dependencies path
 ;(setq site-lisp-dir (expand-file-name "site-lisp" emacs-d))
 
 ;; Setup repositories
@@ -84,10 +81,9 @@
 (show-paren-mode 1)
 
 (require 'rainbow-delimiters)
-(require' undo-tree)
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook 'undo-tree-mode)
+;;(add-hook 'clojure-mode-hook 'undo-tree-mode)
 
 ;; Emacs server
 (require 'server)
@@ -129,12 +125,15 @@
 
 ;; Show time in buffer
 (setq display-time-string-forms
-      '((propertize (concat " " 24-hours ":" minutes " ")
- 		    'face 'egoge-display-time)))
+      '((propertize (concat " " 24-hours ":" minutes " "))))
 (display-time-mode 1)
 
 ;; Mouse wheel scrolls the current buffer
 (mouse-wheel-mode t)
+
+;; Undo tree for all buffers
+(require' undo-tree)
+(global-undo-tree-mode)
 
 ;; Show empty lines
 (toggle-indicate-empty-lines)

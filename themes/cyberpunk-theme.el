@@ -24,7 +24,7 @@
  '(font-lock-comment-delimiter-face ((t (:foreground "#999999"))))
  '(font-lock-constant-face ((t (:foreground "#58E8D0"))))
  '(font-lock-function-name-face ((t (:foreground "#ffffff"))))
- '(font-lock-keyword-face ((t (:foreground "#5789FF"))))
+ '(font-lock-keyword-face ((t (:foreground "#4c83ff"))))
  '(font-lock-type-face ((t (:foreground "#58E8D0"))))
  '(font-lock-variable-name-face ((t (:foreground "#547B96"))))
 
@@ -54,6 +54,14 @@
  '(org-done ((t (:bold t :weight bold :foreground "green"))))
  '(org-todo ((t (:bold t :foreground "red" :weight bold))))
 
+ '(org-level-1 ((t (:foreground "#4c83ff" :height 1.2))))
+ '(org-level-2 ((t (:foreground "#547B96"))))
+ '(org-level-3 ((t (:foreground "#D975EB"))))
+ '(org-level-4 ((t (:foreground "#4FB86B"))))
+ '(org-level-5 ((t (:foreground "#58E8D0"))))
+ '(org-level-6 ((t (:foreground "#99F000"))))
+ '(org-level-7 ((t (:foreground "#999999"))))
+ '(org-level-9 ((t (:foreground "#FFFFFF"))))
 
 ;; TODO Configure
 
