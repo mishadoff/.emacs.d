@@ -6,11 +6,17 @@
 (global-set-key "\C-z" 'undo)
 
 (require 'codetools)
+(require 'move-text)
 
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c f") 'indent-region)
+(global-set-key (kbd "C-c l") 'goto-line)
 
+
+;; Move text
+(global-set-key (kbd "<C-S-up>") 'move-text-up)
+(global-set-key (kbd "<C-S-down>") 'move-text-down)
 
 (global-set-key (kbd "S-<right>") 'windmove-right)
 (global-set-key (kbd "S-<left>") 'windmove-left)
@@ -27,6 +33,8 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x z") 'eshell)
 (global-set-key (kbd "C-x m") 'menu-bar-mode)
+(global-set-key (kbd "C-x w") 'browse-url-at-point)
+
 
 ;; mode specific keybindings
 

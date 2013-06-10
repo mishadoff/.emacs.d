@@ -15,13 +15,15 @@ Prefixed with `C-x`. Mnemonic - e**X**ecute.
 * `C-x l` **TODO** replace (calculate lines)
 * `C-x m` toggle **m**enubar (useful for exploring modes)
 * `C-x o` switch to **o**ther buffer
-* `C-x s` **TODO** replace (save all)
+* `C-x s` save all unsaved buffers
 * `C-x u` history of buffer **u**ndo/redo in a form of tree (*undo-tree*)
+* `C-x w` open **w**eb url at point
 * `C-x z` run terminal (*Eshell*)
 * `C-x 0` close this window
 * `C-x 1` close all but this
 * `C-x 2` split horizontally
 * `C-x 3` split vertically
+* `C-x +` balance windows
 * `C-x <left>` previous buffer
 * `C-x <right>` next buffer
 
@@ -29,18 +31,24 @@ Prefixed with `C-x`. Mnemonic - e**X**ecute.
 	
 * TODO
 
-### Navigation
+### Search/Replace
 
-* TODO
+* `C-s` search forward
+* `C-r` search backward
 
 ### Code mode
 
-A set of useful keybindings for code editor.
+A set of useful keybindings for code (not only) editor.
 Prefixed with `C-c`. Mnemonic - **C**ode.
 
 * `C-c c` **c**omment/uncomment region
 * `C-c d` **d**uplicate current line
-* `C-c f` **f**ormat code (fix indentation) 
+* `C-c f` **f**ormat code (fix indentation)
+* `C-c l` Go to **l**ine
+
+<a name="ibuffer"/>
+### Ibuffer `C-x b`
+
 
 <a name="dired"/>
 ### Dired mode `C-x d`
@@ -60,6 +68,9 @@ Oldschool file explorer. Directory is a file too.
 * `^` Go to root folder
 * `!` execute shell command on the file/folder
 
-### Search
 
-* TODO
+### Additional Features
+
+* `C-u <number>` perform operation specified number of times
+* `C-S-<up>` move line or region up
+* `C-S-<down>` move line or region down

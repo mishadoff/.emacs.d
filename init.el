@@ -65,7 +65,8 @@
  (cons 'rainbow-mode gnu)
  (cons 'rainbow-delimiters melpa)
  (cons 'undo-tree gnu)
- (cons 'magit marmalade))
+ (cons 'magit marmalade)
+ (cons 'move-text melpa))
 
 ;; Smart M-x
 (require 'smex)
@@ -130,6 +131,13 @@
 
 ;; Mouse wheel scrolls the current buffer
 (mouse-wheel-mode t)
+;; Cursor not blinking, please
+(blink-cursor-mode -1)
+;; Owerwrite selection
+(delete-selection-mode 1)
+
+;; recentf-mode
+(recentf-mode 1)
 
 ;; Undo tree for all buffers
 (require' undo-tree)
@@ -137,6 +145,9 @@
 
 ;; Show empty lines
 (toggle-indicate-empty-lines)
+
+;; keybindings is more specific than org-mode
+;(setq org-replace-disputed-keys t)
 
 ;; Clojure mode
 (autoload 'clojure-mode "clojure-mode")
