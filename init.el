@@ -20,14 +20,12 @@
 ;; Setup themes path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-;(setq site-lisp-dir (expand-file-name "site-lisp" emacs-d))
-
 ;; Setup repositories
 (require 'package)
 
 ;; Repositories list
 (defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
-(defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
+(defvar elpa '("gnu" . "http://elpa.gnu.org/packages/"))
 (defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;; Add new repositories
@@ -62,9 +60,9 @@
  (cons 'nrepl melpa)
  (cons 'smex melpa)
  (cons 'color-theme melpa)
- (cons 'rainbow-mode gnu)
+ (cons 'rainbow-mode elpa)
  (cons 'rainbow-delimiters melpa)
- (cons 'undo-tree gnu)
+ (cons 'undo-tree elpa)
  (cons 'magit marmalade)
  (cons 'move-text melpa))
 
@@ -160,6 +158,6 @@
 
 ;; Additional Languages
 
-;; Lisp
-;; M-x run-lisp
-(setq inferior-lisp-program "/usr/bin/sbcl --noinform") ;; lisp must exist
+;; Lisp ;; TODO failsafe
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/usr/bin/sbcl --noinform")
