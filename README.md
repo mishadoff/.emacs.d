@@ -74,3 +74,24 @@ Oldschool file explorer. Directory is a file too.
 * `C-u <number>` perform operation specified number of times
 * `C-S-<up>` move line or region up
 * `C-S-<down>` move line or region down
+
+
+### Programming Languages
+
+Except built-in `elisp`, current emacs have following languages configured
+based on **external dependencies**. All setting supposed to be failsafe
+(i.e. if specific programming language not configured correctly, emacs still works)
+
+* **Common Lisp**
+  * Install [SBCL](www.sbcl.org/platform-table.html)
+  * Download [quicklisp.lisp](http://www.quicklisp.org/beta/)
+  * Run SBCL with load option `sbcl --load path/to/quicklisp.lisp` or load inside SBCL `(load "path/to/quicklisp.lisp")`
+  * Evaluate in SBCL `(quicklisp-quickstart:install)`, `(ql:add-to-init-file)` and `(ql:quickload "quicklisp-slime-helper")`
+  This will configure your SBCL installation to use quicklisp for library access, and install SLIME mode for coding from emacs.
+  * Run emacs, make sure inferior process and quicklisp load path configured correctly.
+  ```
+  (let ((f (expand-file-name "~/quicklisp/slime-helper.el")))
+    (if (file-exists-p f) (load f)))
+  (setq inferior-lisp-program "sbcl --noinform")
+  ```
+  * Have fun.

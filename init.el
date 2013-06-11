@@ -158,6 +158,7 @@
 
 ;; Additional Languages
 
-;; Lisp ;; TODO failsafe
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "/usr/bin/sbcl --noinform")
+;; Lisp
+(let ((f (expand-file-name "~/quicklisp/slime-helper.el")))
+  (if (file-exists-p f) (load f)))
+(setq inferior-lisp-program "sbcl --noinform")
