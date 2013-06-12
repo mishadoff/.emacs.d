@@ -45,4 +45,12 @@
 	    (define-key nrepl-mode-map
 	      (kbd "C-c <pause>") 'nrepl-interrupt)))
 
+
+(add-hook 'slime-repl-mode-hook
+	  (lambda ()
+	    (define-key slime-repl-mode-map 
+	      (kbd "C-c <deletechar>") 'slime-repl-clear-buffer)
+	    (define-key slime-repl-mode-map
+	      (kbd "C-c <pause>") 'slime-interrupt)))
+
 (provide 'keyboard)
