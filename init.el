@@ -162,3 +162,4 @@
 (let ((f (expand-file-name "~/quicklisp/slime-helper.el")))
   (if (file-exists-p f) (load f)))
 (setq inferior-lisp-program "sbcl --noinform")
+(put 'upcase-region 'disabled nil)

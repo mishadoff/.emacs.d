@@ -1,5 +1,4 @@
 ;; Kudos to http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
-
 (defun duplicate-line (arg)
   "Duplicate current line, leaving point in lower line."
   (interactive "*p")
@@ -20,5 +19,16 @@
           (setq count (1- count))))
       (setq buffer-undo-list (cons (cons eol (point)) buffer-undo-list))))
   (next-line arg))
+
+
+;; Kudos to http://www.emacswiki.org/emacs/NumbersInRegisters
+(defun increment-number-at-point ()
+  (interactive)
+  (skip-chars-backward "0123456789")
+  (or (looking-at "[0123456789]+")
+      (error "No number at point"))
+  (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
+
+
 
 (provide 'codetools)
