@@ -36,6 +36,10 @@
 (global-set-key (kbd "C-x w") 'browse-url-at-point)
 
 
+;; Paredit mode
+(global-set-key (kbd "C-x p") 'paredit-mode) ;; should me removed when comfortable with paredit
+
+
 ;; mode specific keybindings
 
 (add-hook 'nrepl-mode-hook

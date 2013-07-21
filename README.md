@@ -15,6 +15,7 @@ Prefixed with `C-x`. Mnemonic - e**X**ecute.
 * `C-x l` **TODO** replace (calculate lines)
 * `C-x m` toggle **m**enubar (useful for exploring modes)
 * `C-x o` switch to **o**ther buffer
+* `C-x p` enable/disable [paredit](#paredit) mode
 * `C-x s` save all unsaved buffers
 * `C-x u` history of buffer **u**ndo/redo in a form of tree (*undo-tree*)
 * `C-x w` open **w**eb url at point
@@ -49,7 +50,6 @@ Prefixed with `C-c`. Mnemonic - **C**ode.
 <a name="ibuffer"/>
 ### Ibuffer `C-x b`
 
-
 <a name="dired"/>
 ### Dired mode `C-x d`
 
@@ -68,6 +68,23 @@ Oldschool file explorer. Directory is a file too.
 * `^` Go to root folder
 * `!` execute shell command on the file/folder
 
+<a name="magit"/>
+### Ibuffer `C-x g`
+
+* `s` stage file
+* `u` unstage file
+* `c` commit, write commit message, `C-c C-c` to finist 
+* `P P` push
+
+<a name="autocomplete"/>
+### Auto-Complete
+
+TODO
+
+<a name="paredit"/>
+### Paredit mode `C-x p`
+
+TODO
 
 ### Additional Features
 
@@ -75,12 +92,16 @@ Oldschool file explorer. Directory is a file too.
 * `C-S-<up>` move line or region up
 * `C-S-<down>` move line or region down
 
-
 ### Programming Languages
 
 Except built-in `elisp`, current emacs have following languages configured
 based on **external dependencies**. All setting supposed to be failsafe
 (i.e. if specific programming language not configured correctly, emacs still works)
+
+* **Clojure**
+  * [Leiningen 2](https://github.com/technomancy/leiningen)
+  * `M-x nrepl`
+  * Have fun!
 
 * **Common Lisp**
   * Install [SBCL](www.sbcl.org/platform-table.html)

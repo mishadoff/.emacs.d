@@ -58,6 +58,10 @@
  (cons 'clojure-mode melpa)
  (cons 'clojure-test-mode melpa)
  (cons 'nrepl melpa)
+ (cons 'paredit melpa)
+ (cons 'auto-complete melpa)
+ (cons 'ac-nrepl melpa)
+ (cons 'popup melpa)
  (cons 'smex melpa)
  (cons 'color-theme melpa)
  (cons 'rainbow-mode elpa)
@@ -81,8 +85,32 @@
 
 (require 'rainbow-delimiters)
 
+;; NREPL CONFIGURATION (move to separate file)
+
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-;;(add-hook 'clojure-mode-hook 'undo-tree-mode)
+
+;; paredit
+;(add-hook 'clojure-mode-hook 'paredit-mode)
+
+;; nrepl
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+(setq nrepl-popup-stacktraces nil)
+(add-to-list 'same-window-buffer-names "*nrepl*")
+;(add-hook 'nrepl-mode-hook 'paredit-mode)
+
+;; Auto complete
+(require 'auto-complete-config)
+(ac-config-default)
+(define-key ac-completing-map "\M-/" 'ac-stop) ; use M-/ to stop completion
+
+;; ac-nrepl
+(require 'ac-nrepl)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
+
+
+
 
 ;; Emacs server
 (require 'server)
