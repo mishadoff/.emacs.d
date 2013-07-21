@@ -5,3 +5,4 @@ eshell
 *.elc
 \#*#
 server
+/ac-comphist.dat

@@ -99,8 +99,9 @@ based on **external dependencies**. All setting supposed to be failsafe
 (i.e. if specific programming language not configured correctly, emacs still works)
 
 * **Clojure**
-  * [Leiningen 2](https://github.com/technomancy/leiningen)
-  * `M-x nrepl`
+  * Install [Leiningen 2](https://github.com/technomancy/leiningen)
+  * Open some file `C-x C-f some-clojure-file.clj`
+  * `M-x nrepl-jack-in`
   * Have fun!
 
 * **Common Lisp**
