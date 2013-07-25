@@ -110,7 +110,9 @@
 (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
 
 
-
+;; Re-Builder
+(require 're-builder)
+(setq reb-re-syntax 'string) ;; Avoid backslash mess
 
 ;; Emacs server
 (require 'server)
