@@ -2,7 +2,7 @@
 
 Global features used to represent some additional
 functionality for emacs. Often backed by other modes.
-Prefixed with `C-x`. Mnemonic - e**X**ecute.
+Prefixed with `C-x`. Mnemonic - e[X]ecute.
 
 * `C-x b` list all **b**uffers ([ibuffer](#ibuffer))
 * `C-x d` list all files in a **d**irectory ([dired-mode](#dired))
@@ -39,8 +39,8 @@ Prefixed with `C-x`. Mnemonic - e**X**ecute.
 
 ### Code mode
 
-A set of useful keybindings for code (not only) editor.
-Prefixed with `C-c`. Mnemonic - **C**ode.
+A set of useful keybindings for code editor.
+Prefixed with `C-c`. Mnemonic - [C]ode.
 
 * `C-c c` **c**omment/uncomment region
 * `C-c d` **d**uplicate current line
