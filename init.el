@@ -174,6 +174,9 @@
 ;; Show empty lines
 (toggle-indicate-empty-lines)
 
+;; Ediff
+(setq ediff-split-window-function 'split-window-horizontally) 
+
 ;; keybindings is more specific than org-mode
 ;(setq org-replace-disputed-keys t)
 
