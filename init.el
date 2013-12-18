@@ -105,9 +105,9 @@
 
 ;; ac-nrepl
 (require 'ac-nrepl)
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-(eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
+;; (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+;; (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+;; (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
 
 
 ;; Re-Builder
@@ -189,9 +189,20 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
+
+;; Flyspell
+(add-hook 'markdown-mode-hook (lambda () (flyspell-mode 1)))
+
+
 ;; Additional Languages
 
 ;; Lisp
 (let ((f (expand-file-name "~/quicklisp/slime-helper.el")))
   (if (file-exists-p f) (load f)))
 (setq inferior-lisp-program "sbcl --noinform")
+
+
+;; Plugins
+
+;; Twitter
+(require 'twittering-mode)

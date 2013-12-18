@@ -13,6 +13,8 @@
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c l") 'goto-line)
 
+;; Flyspell (not actually code related)
+(global-set-key (kbd "C-c i") 'ispell-word)
 
 ;; Move text
 (global-set-key (kbd "<C-S-up>") 'move-text-up)
