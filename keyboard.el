@@ -67,3 +67,14 @@
 	      (kbd "C-c <pause>") 'slime-interrupt)))
 
 (provide 'keyboard)
+
+
+;; TODO
+(require 'smartparens)
+(define-key sp-keymap (kbd "M-f") 'sp-forward-sexp)
+(define-key sp-keymap (kbd "M-b") 'sp-backward-sexp)
+(define-key sp-keymap (kbd "M-u") 'sp-backward-up-sexp)
+(define-key sp-keymap (kbd "M-d") 'sp-down-sexp)
+(define-key sp-keymap (kbd "M-n") 'sp-next-sexp)
+(define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
+(define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
