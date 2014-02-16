@@ -98,7 +98,9 @@
 (add-hook 'clojure-mode-hook 'auto-highlight-symbol-mode)
 ;; default config for smartparens
 (require 'smartparens-config)
-
+(setq sp-highlight-current-sexp t)
+(setq sp-highlight-wrap-overlay nil)
+(setq sp-highlight-pair-overlay nil)
 
 ;; cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
