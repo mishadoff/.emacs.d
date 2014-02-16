@@ -101,7 +101,7 @@ based on **external dependencies**. All setting supposed to be failsafe
 * **Clojure**
   * Install [Leiningen 2](https://github.com/technomancy/leiningen)
   * Open some file `C-x C-f some-clojure-file.clj`
-  * `M-x nrepl-jack-in`
+  * `M-x cider-jack-in`
   * Have fun!
 
 * **Common Lisp**
@@ -117,3 +117,8 @@ based on **external dependencies**. All setting supposed to be failsafe
   (setq inferior-lisp-program "sbcl --noinform")
   ```
   * Have fun.
+
+
+### Cider keywords
+
+`C-c M-n` set namespace

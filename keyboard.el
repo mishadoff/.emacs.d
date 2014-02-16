@@ -1,5 +1,8 @@
 (global-set-key (kbd "M-x") 'smex)
 
+
+(add-hook 'clojure-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 
@@ -12,6 +15,10 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c l") 'goto-line)
+
+(require 'ecb)
+(global-set-key (kbd "C-c e") 'ecb-minor-mode)
+
 
 ;; Flyspell (not actually code related)
 (global-set-key (kbd "C-c i") 'ispell-word)

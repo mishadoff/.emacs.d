@@ -57,8 +57,11 @@
  (cons 'markdown-mode melpa)
  (cons 'clojure-mode melpa)
  (cons 'clojure-test-mode melpa)
+ (cons 'projectile melpa)
  (cons 'cider melpa)
  (cons 'paredit melpa)
+ (cons 'smartparens melpa)
+ (cons 'ecb melpa)
  (cons 'auto-complete melpa)
  (cons 'ac-cider-compliment melpa)
  (cons 'popup melpa)
@@ -68,7 +71,8 @@
  (cons 'rainbow-delimiters melpa)
  (cons 'undo-tree elpa)
  (cons 'magit marmalade)
- (cons 'move-text melpa))
+ (cons 'move-text melpa)
+ (cons 'auto-highlight-symbol marmalade))
 
 ;; Smart M-x
 (require 'smex)
@@ -89,8 +93,12 @@
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
-;; paredit
-;(add-hook 'clojure-mode-hook 'paredit-mode)
+;; smartparens
+(add-hook 'clojure-mode-hook 'smartparens-mode)
+(add-hook 'clojure-mode-hook 'auto-highlight-symbol-mode)
+;; default config for smartparens
+(require 'smartparens-config)
+
 
 ;; cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
@@ -194,6 +202,11 @@
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
 
+;; Emacs Code Browser
+(require 'ecb)
+(setq ecb-layout-name "left15")
+(setq ecb-tip-of-the-day nil)
+
 ;; Flyspell
 ; (add-hook 'markdown-mode-hook (lambda () (flyspell-mode 1)))
 
@@ -210,3 +223,10 @@
 
 ;; Twitter
 ;(require 'twittering-mode)
+
+;; Projectile mode
+(require 'projectile)
+(add-hook 'clojure-mode-hook 'projectile-on)
+;; [C-c p f] find file in project
+;; [С-с p g] grep
+;; [C-c p t] toogle file and test
