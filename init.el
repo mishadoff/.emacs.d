@@ -57,10 +57,10 @@
  (cons 'markdown-mode melpa)
  (cons 'clojure-mode melpa)
  (cons 'clojure-test-mode melpa)
- (cons 'nrepl melpa)
+ (cons 'cider melpa)
  (cons 'paredit melpa)
  (cons 'auto-complete melpa)
- (cons 'ac-nrepl melpa)
+ (cons 'ac-cider-compliment melpa)
  (cons 'popup melpa)
  (cons 'smex melpa)
  (cons 'color-theme melpa)
@@ -92,11 +92,15 @@
 ;; paredit
 ;(add-hook 'clojure-mode-hook 'paredit-mode)
 
-;; nrepl
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-(setq nrepl-popup-stacktraces nil)
-(add-to-list 'same-window-buffer-names "*nrepl*")
-;(add-hook 'nrepl-mode-hook 'paredit-mode)
+;; cider
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(setq nrepl-hide-special-buffers t)
+(setq cider-repl-pop-to-buffer-on-connect nil)
+(setq cider-popup-stacktraces nil)
+(setq cider-repl-popup-stacktraces t)
+(setq cider-repl-use-clojure-font-lock t)
+;(add-to-list 'same-window-buffer-names "*nrepl*")
+;(add-hook 'cider-repl-mode-hook 'paredit-mode)
 
 ;; Auto complete
 (require 'auto-complete-config)
@@ -104,7 +108,7 @@
 (define-key ac-completing-map "\M-/" 'ac-stop) ; use M-/ to stop completion
 
 ;; ac-nrepl
-(require 'ac-nrepl)
+;(require 'ac-nrepl)
 ;; (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 ;; (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 ;; (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
@@ -191,18 +195,18 @@
 
 
 ;; Flyspell
-(add-hook 'markdown-mode-hook (lambda () (flyspell-mode 1)))
+; (add-hook 'markdown-mode-hook (lambda () (flyspell-mode 1)))
 
 
 ;; Additional Languages
 
 ;; Lisp
-(let ((f (expand-file-name "~/quicklisp/slime-helper.el")))
-  (if (file-exists-p f) (load f)))
-(setq inferior-lisp-program "sbcl --noinform")
+;(let ((f (expand-file-name "~/quicklisp/slime-helper.el")))
+;  (if (file-exists-p f) (load f)))
+;(setq inferior-lisp-program "sbcl --noinform")
 
 
 ;; Plugins
 
 ;; Twitter
-(require 'twittering-mode)
+;(require 'twittering-mode)
