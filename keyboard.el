@@ -3,8 +3,11 @@
 
 (add-hook 'clojure-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
+;; navigation
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
+(global-set-key (kbd "<prior>") (kbd "C-u 5 <up>"))
+(global-set-key (kbd "<next>") (kbd "C-u 5 <down>"))
 
 (global-set-key "\C-z" 'undo)
 

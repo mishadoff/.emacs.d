@@ -47,6 +47,8 @@ Prefixed with `C-c`. Mnemonic - [C]ode.
 * `C-c f` **f**ormat code (fix indentation)
 * `C-c l` Go to **l**ine
 
+For advanced code features use [Projectile](#projectile)
+
 <a name="ibuffer"/>
 ### Ibuffer `C-x b`
 
@@ -69,7 +71,7 @@ Oldschool file explorer. Directory is a file too.
 * `!` execute shell command on the file/folder
 
 <a name="magit"/>
-### Ibuffer `C-x g`
+### Magit `C-x g`
 
 * `s` stage file
 * `u` unstage file
@@ -122,3 +124,15 @@ based on **external dependencies**. All setting supposed to be failsafe
 ### Cider keywords
 
 `C-c M-n` set namespace
+
+<a name="projectile"/>
+### Projectile `C-c p`
+
+`C-c p c` - [c]ompile
+`C-c p g` - callers list [g]
+`C-c p t` - toggle between code & [t]est
+`C-c p f` - find [f]ile in a project
+`C-c p e` - recent [e]dited project files
+`C-c p r` - global project [r]eplace
+`C-c p k` - [k]ill all project buffers
+
