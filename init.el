@@ -1,4 +1,4 @@
-;; Disable menu
+; Disable menu
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 ;; Disable toolbar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -108,9 +108,8 @@
 (setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
 (setq cider-repl-popup-stacktraces t)
-(setq cider-repl-use-clojure-font-lock t)
-;(add-to-list 'same-window-buffer-names "*nrepl*")
-;(add-hook 'cider-repl-mode-hook 'paredit-mode)
+;(setq cider-repl-use-clojure-font-lock t)
+(setq cider-prompt-save-file-on-load nil)
 
 ;; Auto complete
 (require 'auto-complete-config)
@@ -234,6 +233,9 @@
 ;; Projectile mode
 (require 'projectile)
 (add-hook 'clojure-mode-hook 'projectile-on)
+
+ ;; Unconditional caching
+(setq projectile-enable-caching t)
 ;; [C-c p f] find file in project
 ;; [С-с p g] grep
 ;; [C-c p t] toogle file and test

@@ -136,3 +136,6 @@ based on **external dependencies**. All setting supposed to be failsafe
 `C-c p r` - global project [r]eplace
 `C-c p k` - [k]ill all project buffers
 
+### SmartParens
+
+`M-s` select next thing

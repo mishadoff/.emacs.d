@@ -18,13 +18,10 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c l") 'goto-line)
-
+(global-set-key (kbd "C-c i") 'indent-region)
+ 
 (require 'ecb)
 (global-set-key (kbd "C-c e") 'ecb-minor-mode)
-
-
-;; Flyspell (not actually code related)
-(global-set-key (kbd "C-c i") 'ispell-word)
 
 ;; Move text
 (global-set-key (kbd "<C-S-up>") 'move-text-up)
@@ -49,7 +46,7 @@
 
 
 ;; Paredit mode
-(global-set-key (kbd "C-x p") 'paredit-mode) ;; should me removed when comfortable with paredit
+;(global-set-key (kbd "C-x p") 'paredit-mode) ;; should me removed when comfortable with paredit
 
 
 ;; mode specific keybindings
