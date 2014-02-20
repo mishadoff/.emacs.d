@@ -105,17 +105,54 @@
 
 ;; cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (setq nrepl-hide-special-buffers t)
 (setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
+(setq cider-popup-stacktraces-in-repl nil)
 (setq cider-repl-popup-stacktraces t)
 ;(setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load nil)
+(add-to-list 'same-window-buffer-names "*cider*")
+
+;; From Emacs Live
+(defun live-windows-hide-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+(when (eq system-type 'windows-nt)
+  (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
+
 
 ;; Auto complete
+(require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
-(define-key ac-completing-map "\M-/" 'ac-stop) ; use M-/ to stop completion
+(set-default 'ac-sources
+             '(ac-source-dictionary
+               ac-source-words-in-buffer
+               ac-source-words-in-same-mode-buffers
+               ac-source-semantic
+               ;ac-source-yasnippet
+	       ))
+
+(require 'ac-cider-compliment)
+(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes cider-mode))
+
+;; (setq ac-auto-show-menu t)
+;; (setq ac-dwim t)
+;; (setq ac-use-menu-map t)
+;; (setq ac-quick-help-delay 1)
+;; (setq ac-quick-help-height 60)
+;; ;(setq ac-disable-inline t)
+;; (setq ac-show-menu-immediately-on-auto-complete t)
+;; (setq ac-auto-start 2)
+;; (setq ac-candidate-menu-min 0)
 
 ;; ac-nrepl
 ;(require 'ac-nrepl)

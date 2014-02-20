@@ -18,8 +18,8 @@
 (define-key yas-minor-mode-map (kbd "<tab>") nil)
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 
-(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
-
+(define-key yas-minor-mode-map (kbd "C-c TAB") 'yas-expand)
+(define-key yas-minor-mode-map (kbd "C-c y") 'yas/insert-snippet)
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c f") 'indent-region)
@@ -83,4 +83,4 @@
 (define-key sp-keymap (kbd "M-d") 'sp-down-sexp)
 (define-key sp-keymap (kbd "M-n") 'sp-next-sexp)
 (define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
-(define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
+(define-key sp-keymap (kbd "M-s") 'sp-select-next-thing)
