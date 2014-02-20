@@ -56,12 +56,13 @@
 (packages-install
  (cons 'markdown-mode melpa)
  (cons 'clojure-mode melpa)
- (cons 'clojure-test-mode melpa)
  (cons 'projectile melpa)
  (cons 'cider melpa)
  (cons 'paredit melpa)
  (cons 'smartparens melpa)
  (cons 'ecb melpa)
+ (cons 'yasnippet melpa)
+ (cons 'clojure-snippets melpa)
  (cons 'auto-complete melpa)
  (cons 'ac-cider-compliment melpa)
  (cons 'popup melpa)
@@ -239,3 +240,6 @@
 ;; [C-c p f] find file in project
 ;; [С-с p g] grep
 ;; [C-c p t] toogle file and test
+
+(require 'yasnippet)
+(yas-global-mode 1)

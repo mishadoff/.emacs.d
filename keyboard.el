@@ -13,6 +13,12 @@
 
 (require 'codetools)
 (require 'move-text)
+(require 'yasnippet)
+
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+
+(define-key yas-minor-mode-map (kbd "C-c y") 'yas-expand)
 
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c d") 'duplicate-line)
