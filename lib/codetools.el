@@ -29,6 +29,11 @@
       (error "No number at point"))
   (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
 
+(defun whack-whitespace (arg)
+  (interactive "P")
+  (let ((regexp "[ \t\n]+"))
+    (re-search-forward regexp nil t)
+    (replace-match "" nil nil)))
 
 
 (provide 'codetools)

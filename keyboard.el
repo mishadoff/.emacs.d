@@ -20,8 +20,10 @@
 
 (define-key yas-minor-mode-map (kbd "C-c TAB") 'yas-expand)
 (define-key yas-minor-mode-map (kbd "C-c y") 'yas/insert-snippet)
+
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c d") 'duplicate-line)
+(global-set-key (kbd "C-c w") 'whack-whitespace)
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c l") 'goto-line)
 (global-set-key (kbd "C-c i") 'indent-region)
@@ -57,12 +59,12 @@
 
 ;; mode specific keybindings
 
-(add-hook 'nrepl-mode-hook
+(add-hook 'cider-repl-mode-hook
 	  (lambda ()
 	    (define-key nrepl-mode-map 
-	      (kbd "C-c <deletechar>") 'nrepl-clear-buffer)
+	      (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
 	    (define-key nrepl-mode-map
-	      (kbd "C-c <pause>") 'nrepl-interrupt)))
+	      (kbd "C-c <pause>") 'cider-interrupt)))
 
 
 (add-hook 'slime-repl-mode-hook
@@ -80,7 +82,8 @@
 (define-key sp-keymap (kbd "M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "M-b") 'sp-backward-sexp)
 (define-key sp-keymap (kbd "M-u") 'sp-backward-up-sexp)
-(define-key sp-keymap (kbd "M-d") 'sp-down-sexp)
+(define-key sp-keymap (kbd "M-d") 'sp-kill-sexp)
 (define-key sp-keymap (kbd "M-n") 'sp-next-sexp)
 (define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
-(define-key sp-keymap (kbd "M-s") 'sp-select-next-thing)
+(define-key sp-keymap (kbd "M-c") 'sp-select-previous-thing-exchange)
+(define-key sp-keymap (kbd "M-s") 'sp-slurp-hybrid-sexp)

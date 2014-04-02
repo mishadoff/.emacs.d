@@ -106,6 +106,7 @@
 ;; cider
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-repl-mode-hook 'smartparens-mode)
 (setq nrepl-hide-special-buffers t)
 (setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
@@ -273,10 +274,12 @@
 (add-hook 'clojure-mode-hook 'projectile-on)
 
  ;; Unconditional caching
-(setq projectile-enable-caching t)
+;(setq projectile-enable-caching t)
 ;; [C-c p f] find file in project
 ;; [С-с p g] grep
 ;; [C-c p t] toogle file and test
 
 (require 'yasnippet)
 (yas-global-mode 1)
+(setq yas/prompt-functions '(yas/ido-prompt yas/no-prompt))
+
