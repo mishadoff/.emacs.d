@@ -59,11 +59,12 @@
 
 ;; mode specific keybindings
 
+
 (add-hook 'cider-repl-mode-hook
 	  (lambda ()
-	    (define-key nrepl-mode-map 
+	    (define-key cider-mode-map 
 	      (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
-	    (define-key nrepl-mode-map
+	    (define-key cider-mode-map
 	      (kbd "C-c <pause>") 'cider-interrupt)))
 
 

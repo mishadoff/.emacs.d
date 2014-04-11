@@ -73,7 +73,10 @@
  (cons 'undo-tree elpa)
  (cons 'magit marmalade)
  (cons 'move-text melpa)
- (cons 'auto-highlight-symbol marmalade))
+ (cons 'auto-highlight-symbol marmalade)
+ (cons 'inf-ruby melpa)
+ (cons 'exec-path-from-shell melpa)
+)
 
 ;; Smart M-x
 (require 'smex)
@@ -84,6 +87,9 @@
 ;; 
 ;; (require 'maxframe)
 ;; (add-hook 'window-setup-hook 'maximize-frame t)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 ;; Highlight parenthesis
 (show-paren-mode 1)
@@ -104,17 +110,18 @@
 (setq sp-highlight-pair-overlay nil)
 
 ;; cider
+(require 'cider)
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-mode)
-(setq nrepl-hide-special-buffers t)
-(setq cider-repl-pop-to-buffer-on-connect nil)
+;(setq nrepl-hide-special-buffers t)
+;(setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
 (setq cider-popup-stacktraces-in-repl nil)
 (setq cider-repl-popup-stacktraces t)
 ;(setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load nil)
-(add-to-list 'same-window-buffer-names "*cider*")
+;(add-to-list 'same-window-buffer-names "*cider*")
 
 ;; From Emacs Live
 (defun live-windows-hide-eol ()
@@ -123,8 +130,8 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-(when (eq system-type 'windows-nt)
-  (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
+;; (when (eq system-type 'windows-nt)
+;;   (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
 
 
 ;; Auto complete
@@ -140,10 +147,10 @@
 	       ))
 
 (require 'ac-cider-compliment)
-(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes cider-mode))
+;(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
+;(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+;(eval-after-load "auto-complete"
+;  '(add-to-list 'ac-modes cider-mode))
 
 ;; (setq ac-auto-show-menu t)
 ;; (setq ac-dwim t)
