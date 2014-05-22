@@ -114,7 +114,7 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-mode)
-;(setq nrepl-hide-special-buffers t)
+(setq nrepl-hide-special-buffers t)
 ;(setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
 (setq cider-popup-stacktraces-in-repl nil)
@@ -147,10 +147,10 @@
 	       ))
 
 (require 'ac-cider-compliment)
-;(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
-;(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-;(eval-after-load "auto-complete"
-;  '(add-to-list 'ac-modes cider-mode))
+(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
+(add-hook 'cider-repl-mode-hook 'ac-cider-compliment-repl-setup)
+(eval-after-load "auto-complete" '(add-to-list 'ac-modes cider-mode))
 
 ;; (setq ac-auto-show-menu t)
 ;; (setq ac-dwim t)

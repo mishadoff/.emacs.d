@@ -60,20 +60,15 @@
 ;; mode specific keybindings
 
 
-(add-hook 'cider-repl-mode-hook
-	  (lambda ()
-	    (define-key cider-mode-map 
-	      (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
-	    (define-key cider-mode-map
-	      (kbd "C-c <pause>") 'cider-interrupt)))
+;; (add-hook 'cider-repl-mode-hook
+;; 	  (lambda ()
+;; 	    (define-key cider-mode-map 
+;; 	      (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
+;; 	    (define-key cider-mode-map
+;; 	      (kbd "C-c <pause>") 'cider-interrupt)))
 
-
-(add-hook 'slime-repl-mode-hook
-	  (lambda ()
-	    (define-key slime-repl-mode-map 
-	      (kbd "C-c <deletechar>") 'slime-repl-clear-buffer)
-	    (define-key slime-repl-mode-map
-	      (kbd "C-c <pause>") 'slime-interrupt)))
+(require 'cider)
+(define-key cider-mode-map (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
 
 (provide 'keyboard)
 
