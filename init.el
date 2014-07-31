@@ -290,3 +290,4 @@
 (yas-global-mode 1)
 (setq yas/prompt-functions '(yas/ido-prompt yas/no-prompt))
 
+(require 'dbconf)
