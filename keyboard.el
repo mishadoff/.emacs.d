@@ -3,15 +3,17 @@
 
 (add-hook 'clojure-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
+(require 'codetools)
+
 ;; navigation
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "<prior>") (kbd "C-u 5 <up>"))
 (global-set-key (kbd "<next>") (kbd "C-u 5 <down>"))
 
+(global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
 (global-set-key "\C-z" 'undo)
 
-(require 'codetools)
 (require 'move-text)
 (require 'yasnippet)
 
@@ -40,7 +42,7 @@
 (global-set-key (kbd "S-<up>") 'windmove-up)
 (global-set-key (kbd "S-<down>") 'windmove-down)
 
-(global-set-key (kbd "C-.") 'complete-symbol)
+(global-set-key (kbd "C-.") 'company-complete-common)
 
 ;; Global Features
 
@@ -59,21 +61,10 @@
 
 ;; mode specific keybindings
 
-
-;; (add-hook 'cider-repl-mode-hook
-;; 	  (lambda ()
-;; 	    (define-key cider-mode-map 
-;; 	      (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
-;; 	    (define-key cider-mode-map
-;; 	      (kbd "C-c <pause>") 'cider-interrupt)))
-
 (require 'cider)
-(define-key cider-mode-map (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
+(define-key cider-repl-mode-map (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
+(define-key cider-repl-mode-map (kbd "C-c <pause>") 'cider-interrupt)
 
-(provide 'keyboard)
-
-
-;; TODO
 (require 'smartparens)
 (define-key sp-keymap (kbd "M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "M-b") 'sp-backward-sexp)
@@ -83,3 +74,6 @@
 (define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
 (define-key sp-keymap (kbd "M-c") 'sp-select-previous-thing-exchange)
 (define-key sp-keymap (kbd "M-s") 'sp-slurp-hybrid-sexp)
+
+
+(provide 'keyboard)

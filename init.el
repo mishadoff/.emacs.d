@@ -63,8 +63,7 @@
  (cons 'ecb melpa)
  (cons 'yasnippet melpa)
  (cons 'clojure-snippets melpa)
- (cons 'auto-complete melpa)
- (cons 'ac-cider-compliment melpa)
+; (cons 'ac-cider-compliment melpa)
  (cons 'popup melpa)
  (cons 'smex melpa)
  (cons 'color-theme melpa)
@@ -76,6 +75,7 @@
  (cons 'auto-highlight-symbol marmalade)
  (cons 'inf-ruby melpa)
  (cons 'exec-path-from-shell melpa)
+ (cons 'company-cider melpa)
 )
 
 ;; Smart M-x
@@ -83,6 +83,17 @@
 (smex-initialize)
 
 (load-theme 'cyberpunk t)
+
+;; TODO MOVE TO THEME
+(require 'color)
+  
+  (let ((bg (face-attribute 'default :background)))
+    (custom-set-faces
+     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+     `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+     `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
 ;; 
 ;; (require 'maxframe)
@@ -134,23 +145,31 @@
 ;;   (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
 
 
-;; Auto complete
-(require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
-(set-default 'ac-sources
-             '(ac-source-dictionary
-               ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers
-               ac-source-semantic
-               ;ac-source-yasnippet
-	       ))
+;; ;; Auto complete
+;; (require 'auto-complete)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+;; (set-default 'ac-sources
+;;              '(ac-source-dictionary
+;;                ac-source-words-in-buffer
+;;                ac-source-words-in-same-mode-buffers
+;;                ac-source-semantic
+;;                ;ac-source-yasnippet
+;; 	       ))
 
-(require 'ac-cider-compliment)
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
-(add-hook 'cider-repl-mode-hook 'ac-cider-compliment-repl-setup)
-(eval-after-load "auto-complete" '(add-to-list 'ac-modes cider-mode))
+;; (require 'ac-cider-compliment)
+;; (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+;; (add-hook 'cider-mode-hook 'ac-cider-compliment-setup)
+;; (add-hook 'cider-repl-mode-hook 'ac-cider-compliment-repl-setup)
+;; (eval-after-load "auto-complete" '(add-to-list 'ac-modes cider-mode))
+
+(require 'company-cider)
+;; Enable company in cider
+(add-hook 'cider-mode-hook 'company-mode)
+(add-hook 'cider-repl-mode-hook 'company-mode)
+
+;; Complete after 500ms
+(setq company-idle-delay 500)
 
 ;; (setq ac-auto-show-menu t)
 ;; (setq ac-dwim t)
@@ -229,7 +248,11 @@
 (delete-selection-mode 1)
 
 ;; recentf-mode
+(require 'recentf)
+(setq recentf-max-saved-items 200)
+(setq recentf-max-menu-items 15)
 (recentf-mode 1)
+
 
 ;; Undo tree for all buffers
 (require' undo-tree)
