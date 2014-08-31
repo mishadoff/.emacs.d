@@ -144,6 +144,13 @@
  '(markdown-pre-face ((t (:foreground "#4c83ff"))))
  '(markdown-inline-code-face ((t (:foreground "#4c83ff"))))
  '(markdown-list-face ((t (:foreground "#8B8989"))))
+
+ '(company-tooltip ((t (:background "#222222"))))
+ '(company-scrollbar-bg ((t (:background "#393939"))))
+ '(company-scrollbar-fg ((t (:background "#292929"))))
+ '(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+ '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+
  )
 
 ;;;###autoload
