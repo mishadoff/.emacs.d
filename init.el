@@ -63,7 +63,6 @@
  (cons 'ecb melpa)
  (cons 'yasnippet melpa)
  (cons 'clojure-snippets melpa)
-; (cons 'ac-cider-compliment melpa)
  (cons 'popup melpa)
  (cons 'smex melpa)
  (cons 'color-theme melpa)
@@ -76,6 +75,7 @@
  (cons 'inf-ruby melpa)
  (cons 'exec-path-from-shell melpa)
  (cons 'company-cider melpa)
+ (cons 'midje-mode melpa)
 )
 
 ;; Smart M-x
@@ -98,6 +98,8 @@
 ;; NREPL CONFIGURATION (move to separate file)
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(require 'midje-mode)
+(add-hook 'clojure-mode-hook 'midje-mode)
 
 ;; smartparens
 (add-hook 'clojure-mode-hook 'smartparens-mode)
@@ -261,8 +263,9 @@
 ;; [С-с p g] grep
 ;; [C-c p t] toogle file and test
 
+
 (require 'yasnippet)
-(yas-global-mode 1)
+;(yas-global-mode 1)
 (setq yas/prompt-functions '(yas/ido-prompt yas/no-prompt))
 
 (require 'dbconf)

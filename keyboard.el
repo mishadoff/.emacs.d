@@ -1,6 +1,5 @@
 (global-set-key (kbd "M-x") 'smex)
 
-
 (add-hook 'clojure-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
 (require 'codetools)
@@ -54,13 +53,10 @@
 (global-set-key (kbd "C-x m") 'menu-bar-mode)
 (global-set-key (kbd "C-x w") 'browse-url-at-point)
 
-
 ;; Paredit mode
 ;(global-set-key (kbd "C-x p") 'paredit-mode) ;; should me removed when comfortable with paredit
 
-
 ;; mode specific keybindings
-
 (require 'cider)
 (define-key cider-repl-mode-map (kbd "C-c <deletechar>") 'cider-repl-clear-buffer)
 (define-key cider-repl-mode-map (kbd "C-c <pause>") 'cider-interrupt)
@@ -74,6 +70,5 @@
 (define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
 (define-key sp-keymap (kbd "M-c") 'sp-select-previous-thing-exchange)
 (define-key sp-keymap (kbd "M-s") 'sp-slurp-hybrid-sexp)
-
 
 (provide 'keyboard)
