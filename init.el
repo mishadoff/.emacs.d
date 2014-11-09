@@ -11,14 +11,16 @@
 ;; Set path to .emacs.d
 (setq emacs-d (file-name-directory load-file-name))
 
-;; Setup load path
-(add-to-list 'load-path emacs-d)
-
 ;; Libraries
 (add-to-list 'load-path "~/.emacs.d/lib/")
 
 ;; Setup themes path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+;; setup path for MacOS
+(when (equal system-type 'darwin)
+  (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
+  (push "/opt/local/bin" exec-path))
 
 ;; Setup repositories
 (require 'package)
@@ -26,11 +28,12 @@
 ;; Repositories list
 (defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
 (defvar elpa '("gnu" . "http://elpa.gnu.org/packages/"))
-(defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
+(defvar melpa '("melpa" . "http://melpa.org/packages/"))
 
 ;; Add new repositories
 (add-to-list 'package-archives marmalade)
 (add-to-list 'package-archives melpa t)
+(add-to-list 'package-archives elpa t)
 
 (package-initialize)
 
@@ -69,12 +72,12 @@
  (cons 'rainbow-mode elpa)
  (cons 'rainbow-delimiters melpa)
  (cons 'undo-tree elpa)
- (cons 'magit marmalade)
+ (cons 'magit melpa)
  (cons 'move-text melpa)
- (cons 'auto-highlight-symbol marmalade)
+ (cons 'auto-highlight-symbol melpa)
  (cons 'inf-ruby melpa)
  (cons 'exec-path-from-shell melpa)
- (cons 'company-cider melpa)
+ ;(cons 'company-cider melpa)
  (cons 'midje-mode melpa)
 )
 
@@ -134,10 +137,10 @@
 ;; (when (eq system-type 'windows-nt)
 ;;   (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
 
-(require 'company-cider)
+;(require 'company-cider)
 ;; Enable company in cider
-(add-hook 'cider-repl-mode-hook 'company-mode)
-(add-hook 'cider-mode-hook 'company-mode)
+;(add-hook 'cider-repl-mode-hook 'company-mode)
+;(add-hook 'cider-mode-hook 'company-mode)
 
 ;; Complete after 500ms
 (setq company-idle-delay 500)
