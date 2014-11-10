@@ -22,6 +22,10 @@
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
   (push "/opt/local/bin" exec-path))
 
+(eval-after-load 'magit
+  '(setq magit-process-connection-type nil))
+
+
 ;; Setup repositories
 (require 'package)
 
