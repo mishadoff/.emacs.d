@@ -25,62 +25,50 @@
 (eval-after-load 'magit
   '(setq magit-process-connection-type nil))
 
-
-;; Setup repositories
-(require 'package)
-
 ;; Repositories list
-(defvar elpa '("gnu" . "http://elpa.gnu.org/packages/"))
-(defvar melpa '("melpa" . "http://melpa-stable.milkbox.net/packages/"))
-
+;(defvar elpa '("gnu" . "http://elpa.gnu.org/packages/"))
+;(defvar melpa '("melpa" . "http://melpa-stable.milkbox.net/packages/"))
+;
 ;; Add new repositories
-(add-to-list 'package-archives melpa t)
-(add-to-list 'package-archives elpa t)
+;(add-to-list 'package-archives melpa t)
+;(add-to-list 'package-archives elpa t)
 
-(package-initialize)
+;(require 'setup-package)
 
-(unless (and (file-exists-p "~/.emacs.d/elpa/archives/gnu")
-             (file-exists-p "~/.emacs.d/elpa/archives/melpa"))
-  (package-refresh-contents))
+;; Install extensions if they're missing
+(require 'setup-package)
+;; Install extensions if they're missing
+(defun init--install-packages ()
+  (packages-install
+   '(markdown-mode
+     clojure-mode
+     projectile
+     cider
+     paredit ;; really needed?
+     smartparens
+     ecb
+     yasnippet
+     clojure-snippets
+     popup
+     smex
+     color-theme
+     rainbow-mode
+     rainbow-delimiters
+     undo-tree
+     magit
+     move-text
+     auto-highlight-symbol
+     inf-ruby
+     exec-path-from-shell
+     company
+     midje-mode
+     )))
 
-;; Install specific packages
-(defun packages-install (&rest packages)
-  (mapc (lambda (package)
-          (let ((name (car package))
-                (repo (cdr package)))
-            (when (not (package-installed-p name))
-              (let ((package-archives (list repo)))
-                (package-initialize)
-                (package-install name)))))
-        packages)
-  (package-initialize)
-  (delete-other-windows))
-
-;; Install missing packages
-(packages-install
- (cons 'markdown-mode melpa)
- (cons 'clojure-mode melpa)
- (cons 'projectile melpa)
- (cons 'cider melpa)
- (cons 'paredit melpa)
- (cons 'smartparens melpa)
- (cons 'ecb melpa)
- (cons 'yasnippet melpa)
- (cons 'clojure-snippets melpa)
- (cons 'popup melpa)
- (cons 'smex melpa)
- (cons 'color-theme melpa)
- (cons 'rainbow-mode elpa)
- (cons 'rainbow-delimiters melpa)
- (cons 'undo-tree elpa)
- (cons 'magit melpa)
- (cons 'move-text melpa)
- (cons 'auto-highlight-symbol melpa)
- (cons 'inf-ruby melpa)
- (cons 'exec-path-from-shell melpa)
- ;(cons 'company-cider melpa)
- (cons 'midje-mode melpa)
-)
+(condition-case nil
+    (init--install-packages)
+  (error
+   (package-refresh-contents)
+   (init--install-packages)))
 
 ;; Smart M-x
 (require 'smex)
@@ -138,10 +126,10 @@
 ;; (when (eq system-type 'windows-nt)
 ;;   (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
 
-;(require 'company-cider)
+(require 'company)
 ;; Enable company in cider
-;(add-hook 'cider-repl-mode-hook 'company-mode)
-;(add-hook 'cider-mode-hook 'company-mode)
+(add-hook 'cider-repl-mode-hook 'company-mode)
+(add-hook 'cider-mode-hook 'company-mode)
 
 ;; Complete after 500ms
 (setq company-idle-delay 500)
