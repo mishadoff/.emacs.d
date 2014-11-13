@@ -9,6 +9,8 @@
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "<prior>") (kbd "C-u 5 <up>"))
 (global-set-key (kbd "<next>") (kbd "C-u 5 <down>"))
+(global-set-key (kbd "C-<down>") (kbd "C-u 5 <down>"))
+(global-set-key (kbd "C-<up>") (kbd "C-u 5 <up>"))
 
 (global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
 (global-set-key "\C-z" 'undo)
