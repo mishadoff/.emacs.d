@@ -247,7 +247,7 @@
 
 ;; Projectile mode
 (require 'projectile)
-(add-hook 'clojure-mode-hook 'projectile-on)
+(add-hook 'clojure-mode-hook 'projectile-mode)
 
  ;; Unconditional caching
 ;(setq projectile-enable-caching t)
