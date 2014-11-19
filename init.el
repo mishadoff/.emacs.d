@@ -8,6 +8,9 @@
 ;; Don't show emacs screen
 (setq inhibit-startup-message t)
 
+;; No more backups please
+(setq make-backup-files nil)
+
 ;; Set path to .emacs.d
 (setq emacs-d (file-name-directory load-file-name))
 
