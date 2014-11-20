@@ -4,7 +4,7 @@
 
 (require 'codetools)
 
-;; navigation
+;; navigation for linux, test it may be outdated
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "<prior>") (kbd "C-u 5 <up>"))
@@ -14,6 +14,13 @@
 
 (global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
 (global-set-key "\C-z" 'undo)
+
+;; for mac we use command as a meta key
+(setq mac-option-key-is-meta nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
+
 
 (require 'move-text)
 (require 'yasnippet)
