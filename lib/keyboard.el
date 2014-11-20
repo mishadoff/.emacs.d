@@ -1,16 +1,9 @@
 (global-set-key (kbd "M-x") 'smex)
 
+;; TODO enter must be disabled
 (add-hook 'clojure-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
 (require 'codetools)
-
-;; navigation for linux, test it may be outdated
-(global-set-key (kbd "<home>") 'beginning-of-buffer)
-(global-set-key (kbd "<end>") 'end-of-buffer)
-(global-set-key (kbd "<prior>") (kbd "C-u 5 <up>"))
-(global-set-key (kbd "<next>") (kbd "C-u 5 <down>"))
-(global-set-key (kbd "C-<down>") (kbd "C-u 5 <down>"))
-(global-set-key (kbd "C-<up>") (kbd "C-u 5 <up>"))
 
 (global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
 (global-set-key "\C-z" 'undo)
@@ -21,6 +14,8 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+;; Guru
+(global-set-key (kbd "C-h") 'backward-delete-char)
 
 (require 'move-text)
 (require 'yasnippet)
@@ -34,8 +29,8 @@
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c w") 'whack-whitespace)
-(global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c l") 'goto-line)
+(global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c i") 'indent-region)
  
 (require 'ecb)
@@ -55,12 +50,14 @@
 ;; Global Features
 
 (global-set-key (kbd "C-x b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x u") 'undo-tree)
 (global-set-key (kbd "C-x q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x z") 'eshell)
+;(global-set-key (kbd "C-x z") 'eshell)
 (global-set-key (kbd "C-x m") 'menu-bar-mode)
 (global-set-key (kbd "C-x w") 'browse-url-at-point)
+(global-set-key (kbd "C-x n") 'ido-switch-buffer)
 
 ;; Paredit mode
 ;(global-set-key (kbd "C-x p") 'paredit-mode) ;; should me removed when comfortable with paredit

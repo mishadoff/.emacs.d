@@ -65,6 +65,7 @@
      exec-path-from-shell
      company
      midje-mode
+     guru-mode
      )))
 
 (condition-case nil
@@ -264,3 +265,8 @@
 (setq yas/prompt-functions '(yas/ido-prompt yas/no-prompt))
 
 (require 'dbconf)
+
+(require 'guru-mode)
+(guru-global-mode +1)
+
+(setq ring-bell-function 'ignore)
