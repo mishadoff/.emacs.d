@@ -17,6 +17,10 @@
 ;; Guru
 (global-set-key (kbd "C-h") 'backward-delete-char)
 
+;; Expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (require 'move-text)
 (require 'yasnippet)
 

@@ -66,6 +66,8 @@
      company
      midje-mode
      guru-mode
+     expand-region
+     ace-jump-mode
      )))
 
 (condition-case nil
