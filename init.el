@@ -68,6 +68,7 @@
      guru-mode
      expand-region
      ace-jump-mode
+     clj-refactor
      )))
 
 (condition-case nil
