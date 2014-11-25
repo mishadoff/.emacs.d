@@ -1,9 +1,12 @@
-; Disable menu
+;; Disable menu
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 ;; Disable toolbar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 ;; Disable scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; Disable visual bell
+(setq ring-bell-function 'ignore)
 
 ;; Don't show emacs screen
 (setq inhibit-startup-message t)
@@ -25,31 +28,18 @@
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
   (push "/opt/local/bin" exec-path))
 
+;; remove?
 (eval-after-load 'magit
   '(setq magit-process-connection-type nil))
 
-;; Repositories list
-;(defvar elpa '("gnu" . "http://elpa.gnu.org/packages/"))
-;(defvar melpa '("melpa" . "http://melpa-stable.milkbox.net/packages/"))
-;
-;; Add new repositories
-;(add-to-list 'package-archives melpa t)
-;(add-to-list 'package-archives elpa t)
-
-;(require 'setup-package)
-
-;; Install extensions if they're missing
 (require 'setup-package)
-;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
    '(markdown-mode
      clojure-mode
      projectile
      cider
-     paredit ;; really needed?
      smartparens
-     ecb
      yasnippet
      clojure-snippets
      popup
@@ -77,14 +67,10 @@
    (package-refresh-contents)
    (init--install-packages)))
 
-;; Smart M-x
 (require 'smex)
 (smex-initialize)
 
 (load-theme 'cyberpunk t)
-
-;; (require 'maxframe)
-;; (add-hook 'window-setup-hook 'maximize-frame t)
 
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
@@ -93,8 +79,6 @@
 (show-paren-mode 1)
 
 (require 'rainbow-delimiters)
-
-;; NREPL CONFIGURATION (move to separate file)
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (require 'midje-mode)
@@ -147,6 +131,7 @@
 
 ;; Emacs server
 (require 'server)
+
 ;; Avoid .emacs.d/server is unsafe on windows
 (when (and (>= emacs-major-version 23)
 	   (equal window-system 'w32))
@@ -156,7 +141,6 @@
   (server-start))
 
 ;; Key bindings
-
 (require 'keyboard)
 
 ;; Interactive commands
@@ -184,7 +168,6 @@
 
 (setq fill-column 80)
 (fset 'yes-or-no-p 'y-or-n-p)
-(setq visible-bell t)
 
 (setq frame-title-format "emacs")
 
@@ -230,53 +213,13 @@
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
 
-;; Emacs Code Browser
-(require 'ecb)
-(setq ecb-layout-name "left15")
-(setq ecb-tip-of-the-day nil)
-
-;; Flyspell
-; (add-hook 'markdown-mode-hook (lambda () (flyspell-mode 1)))
-
-
-;; Additional Languages
-
-;; Lisp
-;(let ((f (expand-file-name "~/quicklisp/slime-helper.el")))
-;  (if (file-exists-p f) (load f)))
-;(setq inferior-lisp-program "sbcl --noinform")
-
-
-;; Plugins
-
-;; Twitter
-;(require 'twittering-mode)
-
 ;; Projectile mode
 (require 'projectile)
 (add-hook 'clojure-mode-hook 'projectile-mode)
 
- ;; Unconditional caching
-;(setq projectile-enable-caching t)
-;; [C-c p f] find file in project
-;; [С-с p g] grep
-;; [C-c p t] toogle file and test
 
-
-(require 'yasnippet)
-;(yas-global-mode 1)
-(setq yas/prompt-functions '(yas/ido-prompt yas/no-prompt))
-
+;; TODO database utilities
 (require 'dbconf)
 
 (require 'guru-mode)
 (guru-global-mode +1)
-
-(setq ring-bell-function 'ignore)
-
-(require 'clj-refactor)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-			       ;; keybindings
-			       (cljr-add-keybindings-with-prefix "C-c C-r")
-			       ))

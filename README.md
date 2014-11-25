@@ -1,77 +1,115 @@
 # General Functionality
 
-* `C-a` st[a]rt of the line
-* `C-b` [b]ackward-char
-* `C-c` Prefix for [**C**ode Mode]()
-* `C-d` [d]elete symbol at right
-* `C-e` [e]nd of the line
-* `C-f` [f]orward-char
+General functionality available globally for every buffer.
+
+** TODO M- prefix in the same line **
+
+* `C-a` st[A]rt of the line
+* `C-b` [B]ackward character
+* `C-c` Prefix for [[C]ode Mode](#code)
+* `C-d` [D]elete symbol at right
+* `C-e` [E]nd of the line
+* `C-f` [F]orward character
 * `C-g` stop interactive input
 * `C-h` backspace
-* `C-i` TODO EMPTY
+* `C-i` **AVAILABLE**
 * `C-j` new line
-* `C-k` [k]ill line till the end
-* `C-l` TODO REBIND
+* `C-k` [K]ill line till the end
+* `C-l` **AVAILABLE**
 * `C-m` new line
-* `C-n` [n]ext line
+* `C-n` [N]ext line
 * `C-o` new line but don't move cursor
-* `C-p` [p]revious line
-* `C-q` TODO EMPTY
-* `C-r` [r]everse search
-* `C-s` [s]earch forward
-* `C-t` [t]ranspose symbols
-* `C-u` [u]ber run prefix, run action number of times
-* `C-v` TODO REBIND
-* `C-w` cut region
-* `C-x` prefix for [e**X**tended functionality]()
-* `C-y` insert
+* `C-p` [P]revious line
+* `C-q` **AVAILABLE**
+* `C-r` [R]everse search
+* `C-s` [S]earch forward
+* `C-t` [T]ranspose symbols
+* `C-u` [U]ber run prefix, run action number of times
+* `C-v` **AVAILABLE**
+* `C-w` cut region (*as standard C-x*)
+* `C-x` prefix for [e[X]tended functionality](#ext)
+* `C-y` insert (*as standard C-v*)
 * `C-z` undo
-* `C-=` [expand region]()
-* `C-.` auto-complete by [company mode]() 
+* `C-=` [expand region](#mode_expand)
+* `C-.` auto-complete backed by [company mode](#mode_company) 
 
-* `M-f` [f]orward word
-* `M-b` [b]ackward word
+* `M-a` st[A]rt of the paragraph
+* `M-b` [B]ackward word
+* `M-c` [C]apitalize word
+* `M-d` [D]elete word
+* `M-e` [E]nd of the paragraph
+* `M-f` [F]orward word
+* `M-g` **AVAILABLE**
+* `M-h` **AVAILABLE**
+* `M-i` **AVAILABLE**
+* `M-j` New line
+* `M-k` [K]ill paragraph
+* `M-l` [L]owercase word
+* `M-m` **AVAILABLE**
+* `M-n` [N]ext 5 lines
+* `M-o` **AVAILABLE**
+* `M-p` [P]revious 5 lines
+* `M-q` **AVAILABLE**
+* `M-r` **AVAILABLE**
+* `M-s` **AVAILABLE**
+* `M-t` [T]ranspose words
+* `M-u` [U]pper case words
+* `M-v` **AVAILABLE**
+* `M-w` copy (*as standard C-c*)
+* `M-x` e[X]exute function
+* `M-y` **???**
+* `M-z` **AVAILABLE**
 
+* `C-M-a` st[A]rt of the buffer
+* `C-M-e` [E]nd of the buffer
 
-** TODO faster navigation up/down
-** TODO begining/end of the buffer
+Note: `M-x guru-mode` enable/disable avigation without arrows
 
+<a name="ext"/>
+### Extended Fuctionality
 
-Note: `M-x guru-mode` enable/disable navigation without arrows
+Extended functionality for emacs. Often backed by other modes.
+Prefixed with `C-x`. Mnemonic - e[X]tended.
 
-### Global Features
+* `C-x a` **AVAILABLE**
+* `C-x b` list all [B]uffers ([ibuffer](#mode_ibuffer))
+* `C-x c` **AVAILABLE**
+* `C-x d` list all files in a [D]irectory ([dired-mode](#mode_dired))
+* `C-x e` run macro ([E]valuate)
+* `C-x f` [F]ind file with autocompletion
+* `C-x g` [G]it-status ([magit](#mode_magit))
+* `C-x h` **AVAILABLE** select all
+* `C-x i` **AVAILABLE**
+* `C-x j` [J]ump to symbol ([ace-jump-mode](#mode_ace))
+* `C-x k` [K]ill current buffer
+* `C-x l` **AVAILABLE** replace (calculate lines)
+* `C-x m` toggle [M]enubar (useful for exploring modes)
+* `C-x n` Switch to buffer by [N]ame
+* `C-x o` switch to [O]ther buffer
+* `C-x p` **AVAILABLE**
+* `C-x q` [Q]uit emacs, save buffers
+* `C-x r` **AVAILABLE**
+* `C-x s` [S]ave all unsaved buffers
+* `C-x t` **AVAILABLE**
+* `C-x u` history of buffer [U]ndo/redo in a form of tree ([undo-tree](#mode_undo))
+* `C-x v` **AVAILABLE**
+* `C-x w` open [W]eb url at point in default browser
+* `C-x x` **AVAILABLE**
+* `C-x y` **AVAILABLE**
+* `C-x z` **AVAILABLE**
 
-Global features used to represent some additional
-functionality for emacs. Often backed by other modes.
-Prefixed with `C-x`. Mnemonic - e[X]ecute.
-
-* `C-x a` EMPTY
-* `C-x b` list all **b**uffers ([ibuffer](#ibuffer))
-* `C-x d` list all files in a **d**irectory ([dired-mode](#dired))
 * `C-x (` start defining macro
 * `C-x )` finish defining macro
-* `C-x e` run macro (**e**valueate)
-* `C-x g` **g**it-status ([magit](#magit))
-* `C-x h` select all
-* `C-x j` jump to symbol (ace-jump-mode)
-* `C-x k` **k**ill current buffer
-* `C-x l` **TODO** replace (calculate lines)
-* `C-x m` toggle **m**enubar (useful for exploring modes)
-* `C-x n` Switch to buffer by **n**ame
-* `C-x o` switch to **o**ther buffer
-* `C-x p` EMPTY
-* `C-x s` save all unsaved buffers
-* `C-x u` history of buffer **u**ndo/redo in a form of tree (*undo-tree*)
-* `C-x w` open **w**eb url at point
-* `C-x z` run terminal (*Eshell*)
 * `C-x 0` close this window
 * `C-x 1` close all but this
 * `C-x 2` split horizontally
 * `C-x 3` split vertically
 * `C-x +` balance windows
+
 * `C-x <left>` previous buffer
 * `C-x <right>` next buffer
 
+<a name="code"/>
 ### Code mode
 
 A set of useful keybindings for code editor.
@@ -112,11 +150,6 @@ Oldschool file explorer. Directory is a file too.
 * `u` unstage file
 * `c` commit, write commit message, `C-c C-c` to finist 
 * `P P` push
-
-<a name="autocomplete"/>
-### Auto-Complete
-
-TODO
 
 ### Additional Features
 
