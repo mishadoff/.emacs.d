@@ -273,3 +273,10 @@
 (guru-global-mode +1)
 
 (setq ring-bell-function 'ignore)
+
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+			       ;; keybindings
+			       (cljr-add-keybindings-with-prefix "C-c C-r")
+			       ))

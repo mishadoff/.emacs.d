@@ -36,9 +36,17 @@
 (global-set-key (kbd "C-c l") 'goto-line)
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c i") 'indent-region)
- 
+
+;; C-c C-r refactor mode for clojure
+
 (require 'ecb)
 (global-set-key (kbd "C-c e") 'ecb-minor-mode)
+
+;; Hide Block 
+(global-set-key (kbd "C-c h t") 'hs-toggle-hiding)
+(global-set-key (kbd "C-c h s") 'hs-show-all)
+(global-set-key (kbd "C-c h h") 'hs-hide-all)
+
 
 ;; Move text
 (global-set-key (kbd "<C-S-up>") 'move-text-up)
@@ -62,6 +70,7 @@
 (global-set-key (kbd "C-x m") 'menu-bar-mode)
 (global-set-key (kbd "C-x w") 'browse-url-at-point)
 (global-set-key (kbd "C-x n") 'ido-switch-buffer)
+(global-set-key (kbd "C-x j") 'ace-jump-mode)
 
 ;; Paredit mode
 ;(global-set-key (kbd "C-x p") 'paredit-mode) ;; should me removed when comfortable with paredit

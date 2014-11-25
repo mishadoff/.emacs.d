@@ -1,21 +1,65 @@
+# General Functionality
+
+* `C-a` st[a]rt of the line
+* `C-b` [b]ackward-char
+* `C-c` Prefix for [**C**ode Mode]()
+* `C-d` [d]elete symbol at right
+* `C-e` [e]nd of the line
+* `C-f` [f]orward-char
+* `C-g` stop interactive input
+* `C-h` backspace
+* `C-i` TODO EMPTY
+* `C-j` new line
+* `C-k` [k]ill line till the end
+* `C-l` TODO REBIND
+* `C-m` new line
+* `C-n` [n]ext line
+* `C-o` new line but don't move cursor
+* `C-p` [p]revious line
+* `C-q` TODO EMPTY
+* `C-r` [r]everse search
+* `C-s` [s]earch forward
+* `C-t` [t]ranspose symbols
+* `C-u` [u]ber run prefix, run action number of times
+* `C-v` TODO REBIND
+* `C-w` cut region
+* `C-x` prefix for [e**X**tended functionality]()
+* `C-y` insert
+* `C-z` undo
+* `C-=` [expand region]()
+* `C-.` auto-complete by [company mode]() 
+
+* `M-f` [f]orward word
+* `M-b` [b]ackward word
+
+
+** TODO faster navigation up/down
+** TODO begining/end of the buffer
+
+
+Note: `M-x guru-mode` enable/disable navigation without arrows
+
 ### Global Features
 
 Global features used to represent some additional
 functionality for emacs. Often backed by other modes.
 Prefixed with `C-x`. Mnemonic - e[X]ecute.
 
+* `C-x a` EMPTY
 * `C-x b` list all **b**uffers ([ibuffer](#ibuffer))
 * `C-x d` list all files in a **d**irectory ([dired-mode](#dired))
 * `C-x (` start defining macro
 * `C-x )` finish defining macro
 * `C-x e` run macro (**e**valueate)
 * `C-x g` **g**it-status ([magit](#magit))
-* `C-x h` **TODO** replace (select all)
+* `C-x h` select all
+* `C-x j` jump to symbol (ace-jump-mode)
 * `C-x k` **k**ill current buffer
 * `C-x l` **TODO** replace (calculate lines)
 * `C-x m` toggle **m**enubar (useful for exploring modes)
+* `C-x n` Switch to buffer by **n**ame
 * `C-x o` switch to **o**ther buffer
-* `C-x p` enable/disable [paredit](#paredit) mode
+* `C-x p` EMPTY
 * `C-x s` save all unsaved buffers
 * `C-x u` history of buffer **u**ndo/redo in a form of tree (*undo-tree*)
 * `C-x w` open **w**eb url at point
@@ -28,15 +72,6 @@ Prefixed with `C-x`. Mnemonic - e[X]ecute.
 * `C-x <left>` previous buffer
 * `C-x <right>` next buffer
 
-### Text Editor
-	
-* TODO
-
-### Search/Replace
-
-* `C-s` search forward
-* `C-r` search backward
-
 ### Code mode
 
 A set of useful keybindings for code editor.
@@ -47,7 +82,7 @@ Prefixed with `C-c`. Mnemonic - [C]ode.
 * `C-c f` **f**ormat code (fix indentation)
 * `C-c l` Go to **l**ine
 
-For advanced code features use [Projectile](#projectile)
+For advanced code features use [Projectile](#projectile) 
 
 <a name="ibuffer"/>
 ### Ibuffer `C-x b`
@@ -80,11 +115,6 @@ Oldschool file explorer. Directory is a file too.
 
 <a name="autocomplete"/>
 ### Auto-Complete
-
-TODO
-
-<a name="paredit"/>
-### Paredit mode `C-x p`
 
 TODO
 
@@ -138,4 +168,5 @@ based on **external dependencies**. All setting supposed to be failsafe
 
 ### SmartParens
 
-`M-s` select next thing
+`M-c` select next thing
+`M-s` slurp 
