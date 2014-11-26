@@ -87,9 +87,15 @@
 			       ;; clj-refactor
                                (clj-refactor-mode 1)
 			       (cljr-add-keybindings-with-prefix "C-c r")
-
+			       (hs-minor-mode 1)
 			       ;; keybindings
 			       (local-set-key (kbd "RET") 'newline-and-indent)
+
+			       (local-set-key (kbd "C-c h t") 'hs-toggle-hiding)
+			       (local-set-key (kbd "C-c h s") 'hs-show-all)
+			       (local-set-key (kbd "C-c h h") 'hs-hide-all)
+
+			       
 			       ))
 
 ;; TODO MORE CIDER BINDINGS
@@ -107,9 +113,6 @@
 
 
 ;; Hide Block 
-(global-set-key (kbd "C-c h t") 'hs-toggle-hiding)
-(global-set-key (kbd "C-c h s") 'hs-show-all)
-(global-set-key (kbd "C-c h h") 'hs-hide-all)
 
 
 ;; Markdown-mode

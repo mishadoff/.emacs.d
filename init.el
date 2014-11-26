@@ -54,7 +54,6 @@
      inf-ruby
      exec-path-from-shell
      company
-     midje-mode
      guru-mode
      expand-region
      ace-jump-mode
@@ -81,8 +80,6 @@
 (require 'rainbow-delimiters)
 
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(require 'midje-mode)
-(add-hook 'clojure-mode-hook 'midje-mode)
 
 ;; smartparens
 (add-hook 'clojure-mode-hook 'smartparens-mode)
@@ -224,3 +221,4 @@
 
 (require 'guru-mode)
 (guru-global-mode +1)
+
