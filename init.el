@@ -118,9 +118,10 @@
 ;;   (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
 
 (require 'company)
-;; Enable company in cider
-(add-hook 'cider-repl-mode-hook 'company-mode)
-(add-hook 'cider-mode-hook 'company-mode)
+;; Enable company-mode globally
+(add-hook 'after-init-hook 'global-company-mode)
+
+
 
 ;; Complete after 500ms
 (setq company-idle-delay 500)

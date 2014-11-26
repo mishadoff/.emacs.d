@@ -1,3 +1,5 @@
+Configuration for Emacs 24
+
 # General Functionality
 
 General functionality available globally for every buffer.
@@ -66,7 +68,7 @@ General functionality available globally for every buffer.
 Note: `M-x guru-mode` enable/disable avigation without arrows
 
 <a name="ext"/>
-### Extended Fuctionality
+# Extended Fuctionality
 
 Extended functionality for emacs. Often backed by other modes.
 Prefixed with `C-x`. Mnemonic - e[X]tended.
@@ -110,26 +112,71 @@ Prefixed with `C-x`. Mnemonic - e[X]tended.
 * `C-x <right>` next buffer
 
 <a name="code"/>
-### Code mode
+# Code mode
 
 A set of useful keybindings for code editor.
 Prefixed with `C-c`. Mnemonic - [C]ode.
 
-* `C-c c` **c**omment/uncomment region
-* `C-c d` **d**uplicate current line
-* `C-c f` **f**ormat code (fix indentation)
-* `C-c l` Go to **l**ine
+* `C-c a` **AVAILABLE**
+* `C-c b` **AVAILABLE**
+* `C-c c` [C]omment/uncomment region
+* `C-c d` [D]uplicate current line
+* `C-c e` **AVAILABLE**
+* `C-c f` [F]ormat code (the same as indent)
+* `C-c g` **AVAILABLE**
+* `C-c h` Prefix for [[H]ide/show mode](#mode_hs)
+* `C-c i` [I]ndent code (the same as format)
+* `C-c j` **AVAILABLE**
+* `C-c l` Go to [L]ine
+* `C-c m` **AVAILABLE**
+* `C-c n` **AVAILABLE**
+* `C-c o` **AVAILABLE**
+* `C-c p` Prefix for [[P]rojectile mode](#mode_projectile)
+* `C-c q` **AVAILABLE**
+* `C-c r` Prefix for [[R]efactor mode](#mode_refactor) (only in clojure mode)
+* `C-c s` **AVAILABLE**
+* `C-c t` **AVAILABLE**
+* `C-c u` **AVAILABLE**
+* `C-c v` **AVAILABLE**
+* `C-c w` [W]hack whitespace (delete forward all whitespaces)
+* `C-c x` **AVAILABLE**
+* `C-c y` **AVAILABLE**
+* `C-c z` **AVAILABLE**
 
-For advanced code features use [Projectile](#projectile) 
+# Modes
 
-<a name="ibuffer"/>
-### Ibuffer `C-x b`
+<a name="mode_expand"/>
+## [Expand Region](https://github.com/magnars/expand-region.el)
 
-<a name="dired"/>
-### Dired mode `C-x d`
+Press `C-=` to enable expand-region function that incrementally select
+text. This mode is aware about structure of most common file types (e.g. programming languages) so it works well in semantic code selection as well.
 
-Oldschool file explorer. Directory is a file too.
+* `=` expand selection
+* `-` narrow selection
+* `0` reset selection
 
+<a name="mode_company"/>
+## [Company Mode](http://company-mode.github.io) 
+
+* `C-.` triggers code completion
+* `M-p`/`M-n` or `<up>`/`<down>` move up and down to select candidate
+* `<return>` to complete
+* `C-w` show source
+* `<F1>` show documentation
+* `C-g` stop input
+
+<a name="mode_ibuffer"/>
+### ibuffer
+
+* Press `C-x b` to show buffer list
+* `m` mark buffer
+* `u` unmark buffer
+* `D` kill all marked buffers
+
+<a name="mode_dired"/>
+### Dired mode
+
+* Press `C-x d` to show oldschool file explorer
 * `Enter` open file
 * `m` mark file
 * `u` unmark file
@@ -141,23 +188,17 @@ Oldschool file explorer. Directory is a file too.
 * `g` refresh folder
 * `q` close folder
 * `^` Go to root folder
-* `!` execute shell command on the file/folder
 
-<a name="magit"/>
+<a name="mode_magit"/>
 ### Magit `C-x g`
 
 * `s` stage file
 * `u` unstage file
-* `c` commit, write commit message, `C-c C-c` to finist 
+* `TAB` show unified diff
+* `c c` commit, write commit message, `C-c C-c` to finish
 * `P P` push
 
-### Additional Features
-
-* `C-u <number>` perform operation specified number of times
-* `C-S-<up>` move line or region up
-* `C-S-<down>` move line or region down
-
-### Programming Languages
+# Programming Languages
 
 Except built-in `elisp`, current emacs have following languages configured
 based on **external dependencies**. All setting supposed to be failsafe
@@ -183,15 +224,10 @@ based on **external dependencies**. All setting supposed to be failsafe
   ```
   * Have fun.
 
-
-### Cider keywords
-
-`C-c M-n` set namespace
-
-<a name="projectile"/>
+<a name="mode_projectile"/>
 ### Projectile `C-c p`
 
-`C-c p c` - [c]ompile
+`C-c p c` - [C]ompile
 `C-c p g` - callers list [g]
 `C-c p t` - toggle between code & [t]est
 `C-c p f` - find [f]ile in a project

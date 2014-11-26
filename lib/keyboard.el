@@ -71,6 +71,8 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c w") 'whack-whitespace)
 (global-set-key (kbd "C-c l") 'goto-line)
+;; it's possible to use jack-in as common functionality for other languages as well
+;(global-set-key (kbd "C-c j") 'cider-jack-in)
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c i") 'indent-region)
 
@@ -109,5 +111,12 @@
 (global-set-key (kbd "C-c h s") 'hs-show-all)
 (global-set-key (kbd "C-c h h") 'hs-hide-all)
 
+
+;; Markdown-mode
+
+(add-hook 'markdown-mode-hook (lambda()
+				(local-set-key (kbd "M-n") nil)
+				(local-set-key (kbd "M-p") nil)
+				))
 
 (provide 'keyboard)
