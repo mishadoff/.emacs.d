@@ -21,7 +21,8 @@
 
 (global-set-key (kbd "M-x") 'smex)
 
-(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-z") 'undo-tree-undo)
+(global-set-key (kbd "M-z") 'undo-tree-redo)
 (global-set-key (kbd "C-h") 'backward-delete-char)
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-.") 'company-complete-common)
