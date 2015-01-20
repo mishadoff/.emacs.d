@@ -194,6 +194,7 @@ text. This mode is aware about structure of most common file types (e.g. program
 
 * `s` stage file
 * `u` unstage file
+* `k` discard changes
 * `TAB` show unified diff
 * `c c` commit, write commit message, `C-c C-c` to finish
 * `P P` push

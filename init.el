@@ -219,6 +219,8 @@
 ;; TODO database utilities
 (require 'dbconf)
 
-(require 'guru-mode)
-(guru-global-mode +1)
+;; Sorry, too hardcore
+;;
+;; (require 'guru-mode)
+;; (guru-global-mode +1)
 
