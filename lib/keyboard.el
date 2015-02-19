@@ -99,6 +99,12 @@
 			       
 			       ))
 
+(add-hook 'cider-mode-hook (lambda ()
+			     ;; keybindings
+			     (local-set-key (kbd "C-c t") 'cider-test-run-tests)
+			     
+			     ))
+
 ;; TODO MORE CIDER BINDINGS
 
 ;; smartparens

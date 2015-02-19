@@ -32,6 +32,8 @@
 (eval-after-load 'magit
   '(setq magit-process-connection-type nil))
 
+
+;; Installing Packages
 (require 'setup-package)
 (defun init--install-packages ()
   (packages-install
@@ -224,3 +226,7 @@
 ;; (require 'guru-mode)
 ;; (guru-global-mode +1)
 
+;; disable old theme before loading new
+(defadvice load-theme 
+  (before theme-dont-propagate activate)
+  (mapcar #'disable-theme custom-enabled-themes))
