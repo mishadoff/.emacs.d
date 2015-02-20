@@ -111,13 +111,19 @@
 ;; smartparens
 
 ;; TODO REVIEW SMARTPARENS
-;(define-key sp-keymap (kbd "M-b") 'sp-backward-sexp)
-;(adefine-key sp-keymap (kbd "M-u") 'sp-backward-up-sexp)
-;(define-key sp-keymap (kbd "M-d") 'sp-kill-sexp)
-;(define-key sp-keymap (kbd "M-n") 'sp-next-sexp)
-;(define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
-(define-key sp-keymap (kbd "M-c") 'sp-select-previous-thing-exchange)
-(define-key sp-keymap (kbd "M-s") 'sp-slurp-hybrid-sexp)
+;;(define-key sp-keymap (kbd "M-b") 'sp-backward-sexp)
+;;(adefine-key sp-keymap (kbd "M-u") 'sp-backward-up-sexp)
+;;(define-key sp-keymap (kbd "M-d") 'sp-kill-sexp)
+;;(define-key sp-keymap (kbd "M-n") 'sp-next-sexp)
+;;(define-key sp-keymap (kbd "M-p") 'sp-previous-sexp)
+
+(define-key sp-keymap (kbd "C-c s a") 'sp-slurp-hybrid-sexp)
+(define-key sp-keymap (kbd "C-c s b") 'sp-forward-barf-sexp)
+(define-key sp-keymap (kbd "C-c s d") 'sp-kill-hybrid-sexp)
+(define-key sp-keymap (kbd "C-c s f") 'sp-forward-sexp)
+(define-key sp-keymap (kbd "C-c s s") 'sp-forward-slurp-sexp)
+
+
 
 
 ;; Hide Block 
