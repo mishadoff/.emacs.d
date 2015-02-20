@@ -60,6 +60,7 @@
 (global-set-key (kbd "C-x m") 'menu-bar-mode)
 (global-set-key (kbd "C-x w") 'browse-url-at-point)
 (global-set-key (kbd "C-x n") 'ido-switch-buffer)
+(global-set-key (kbd "C-x C-n") 'ido-switch-buffer)
 (global-set-key (kbd "C-x j") 'ace-jump-mode)
 (global-set-key (kbd "C-x f") 'ido-find-file)
 (global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
