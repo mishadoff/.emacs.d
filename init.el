@@ -60,6 +60,7 @@
      expand-region
      ace-jump-mode
      clj-refactor
+     zenburn-theme
      )))
 
 (condition-case nil
@@ -70,8 +71,6 @@
 
 (require 'smex)
 (smex-initialize)
-
-(load-theme 'cyberpunk t)
 
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
@@ -230,3 +229,7 @@
 (defadvice load-theme 
   (before theme-dont-propagate activate)
   (mapcar #'disable-theme custom-enabled-themes))
+
+;;
+(require 'color-theme)
+(load-theme 'zenburn t)
