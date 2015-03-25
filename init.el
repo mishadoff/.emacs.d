@@ -20,6 +20,9 @@
 ;; Libraries
 (add-to-list 'load-path "~/.emacs.d/lib/")
 
+;; Name of emacs window as a buffer name
+(setq frame-title-format "%b")
+
 ;; Setup themes path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
