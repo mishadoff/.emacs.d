@@ -157,14 +157,24 @@
 
 (add-hook 'org-mode-hook 
           (lambda ()
-	    ;; disable already defined keys
-	    (local-unset-key (kbd "<C-S-down>"))
-	    (local-unset-key (kbd "<C-S-up>"))
-
 	    ;; configure own keybinfings
 	    (local-set-key (kbd "<C-S-down>") 'org-move-subtree-down)
 	    (local-set-key (kbd "<C-S-up>") 'org-move-subtree-up)
 	    (local-set-key (kbd "C-<down>") 'org-forward-element)
 	    (local-set-key (kbd "C-<up>") 'org-backward-element)
+	    (local-set-key (kbd "M-<up>") 'org-up-element)
+	    (local-set-key (kbd "M-<down>") 'outline-next-visible-heading)
+	    ;; prefixed keybindings C-o
+	    (local-set-key (kbd "C-o k") 'org-cut-subtree)
+	    (local-set-key (kbd "C-o n") 'org-narrow-to-subtree)
+	    (local-set-key (kbd "C-o s") 'org-sparse-tree)
+	    (local-set-key (kbd "C-o w") 'widen)
+	    
+	    (local-set-key (kbd "C-o e") 'next-error)
+	    (local-set-key (kbd "C-o r") 'previous-error)
 
+	    (local-set-key (kbd "M-.") 'org-open-at-point)
+	    (local-set-key (kbd "M-,") 'org-mark-ring-goto)
+
+	    
 	    ))

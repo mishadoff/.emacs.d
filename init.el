@@ -202,9 +202,6 @@
 ;; Ediff
 (setq ediff-split-window-function 'split-window-horizontally) 
 
-;; keybindings is more specific than org-mode
-;(setq org-replace-disputed-keys t)
-
 ;; Clojure mode
 (autoload 'clojure-mode "clojure-mode")
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
@@ -236,3 +233,11 @@
 ;;
 (require 'color-theme)
 (load-theme 'zenburn t)
+
+;; org mode
+(defun org-summary-todo (n-done n-not-done)
+  "Switch entry to DONE when all subentries are done, to TODO otherwise."
+  (let (org-log-done org-log-states)   ; turn off logging
+    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
