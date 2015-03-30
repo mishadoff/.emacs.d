@@ -235,9 +235,18 @@
 (load-theme 'zenburn t)
 
 ;; org mode
+
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
     (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+(setq org-todo-keywords '((sequence "TODO" "PROGRESS" "|" "DONE")))
+
+(setq org-todo-keyword-faces
+      '(("TODO" :background "red1" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+        ("PROGRESS" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
+        ("DONE" :background "forest green" :weight bold :box (:line-width 2 :style released-button))
+	))

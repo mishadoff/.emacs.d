@@ -172,7 +172,7 @@
 	    
 	    (local-set-key (kbd "C-o e") 'next-error)
 	    (local-set-key (kbd "C-o r") 'previous-error)
-
+	    
 	    (local-set-key (kbd "M-.") 'org-open-at-point)
 	    (local-set-key (kbd "M-,") 'org-mark-ring-goto)
 
