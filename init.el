@@ -38,6 +38,7 @@
 
 ;; Installing Packages
 (require 'setup-package)
+
 (defun init--install-packages ()
   (packages-install
    '(markdown-mode
@@ -211,6 +212,8 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
+;; refresh buffers
+(global-auto-revert-mode t)
 
 ;; Projectile mode
 (require 'projectile)

@@ -118,6 +118,7 @@
 ;;(define-key sp-keymap (kbd "M-p") 'sp-previous-SEXP)
 
 (define-key sp-keymap (kbd "C-c s s") 'sp-slurp-hybrid-sexp)
+(define-key sp-keymap (kbd "C-c s f") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-c s d") 'sp-kill-hybrid-sexp)
 (define-key sp-keymap (kbd "C-c s t") 'sp-transpose-sexp)
 
