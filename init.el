@@ -1,8 +1,6 @@
-;; Disable menu
+;; Disable menu, toolbar and scrollbar
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-;; Disable toolbar
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-;; Disable scrollbar
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Disable visual bell
@@ -17,11 +15,8 @@
 ;; Set path to .emacs.d
 (setq emacs-d (file-name-directory load-file-name))
 
-;; Libraries
+;; Own plugins
 (add-to-list 'load-path "~/.emacs.d/lib/")
-
-;; Name of emacs window as a buffer name
-(setq frame-title-format "%b")
 
 ;; Setup themes path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -31,40 +26,50 @@
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
   (push "/opt/local/bin" exec-path))
 
-;; remove?
-(eval-after-load 'magit
-  '(setq magit-process-connection-type nil))
-
-
 ;; Installing Packages
 (require 'setup-package)
 
 (defun init--install-packages ()
   (packages-install
-   '(markdown-mode
+   '(
+
+     ;; clojure
      clojure-mode
-     projectile
+     clojure-snippets
+     clj-refactor
      cider
      smartparens
-     yasnippet
-     clojure-snippets
-     popup
-     smex
-     color-theme
-     rainbow-mode
      rainbow-delimiters
-     undo-tree
-     magit
-     move-text
-     auto-highlight-symbol
+     
+     ;; ruby
      inf-ruby
      exec-path-from-shell
-     company
-     guru-mode
-     expand-region
-     ace-jump-mode
-     clj-refactor
+
+     ;; git
+     magit
+     
+     ;; markdown markup support
+     markdown-mode
+     
+     ;; commons
+     projectile ;; project management
+     yasnippet  ;; snippet system
+     company    ;; completion framework
+     popup      ;; foo autocompletion
+     undo-tree  ;; show change history as a tree
+     move-text  ;; move region in buffer
+     smex       ;; smart execution engine
+     expand-region ;; expandable selection
+     ace-jump-mode ;; fast symbol selection
+
+     ;; style
+     color-theme
+     rainbow-mode
      zenburn-theme
+     auto-highlight-symbol
+
+     ;; hardcore
+     guru-mode
      )))
 
 (condition-case nil
@@ -83,12 +88,12 @@
 (show-paren-mode 1)
 
 (require 'rainbow-delimiters)
-
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 ;; smartparens
 (add-hook 'clojure-mode-hook 'smartparens-mode)
 (add-hook 'clojure-mode-hook 'auto-highlight-symbol-mode)
+
 ;; default config for smartparens
 (require 'smartparens-config)
 (setq sp-highlight-current-sexp t)
@@ -101,28 +106,17 @@
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-mode)
 (setq nrepl-hide-special-buffers t)
-;(setq cider-repl-pop-to-buffer-on-connect nil)
+(setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
 (setq cider-popup-stacktraces-in-repl nil)
 (setq cider-repl-popup-stacktraces t)
-;(setq cider-repl-use-clojure-font-lock t)
+(setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load nil)
 ;(add-to-list 'same-window-buffer-names "*cider*")
-
-;; From Emacs Live
-(defun live-windows-hide-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (setq buffer-display-table (make-display-table))
-  (aset buffer-display-table ?\^M []))
-
-;; (when (eq system-type 'windows-nt)
-;;   (add-hook 'cider-mode-hook 'live-windows-hide-eol ))
 
 (require 'company)
 ;; Enable company-mode globally
 (add-hook 'after-init-hook 'global-company-mode)
-
 
 
 ;; Complete after 500ms
@@ -139,7 +133,7 @@
 (when (and (>= emacs-major-version 23)
 	   (equal window-system 'w32))
   (defun server-ensure-safe-dir (dir) "Noop" t))
- 
+
 (unless (server-running-p)
   (server-start))
 
@@ -170,9 +164,9 @@
 (setq column-number-mode t)
 
 (setq fill-column 80)
-(fset 'yes-or-no-p 'y-or-n-p)
 
-(setq frame-title-format "emacs")
+;; don't ask verbose 
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Show time in buffer
 (setq display-time-string-forms
@@ -219,7 +213,6 @@
 (require 'projectile)
 (add-hook 'clojure-mode-hook 'projectile-mode)
 
-
 ;; TODO database utilities
 (require 'dbconf)
 
@@ -230,7 +223,7 @@
 
 ;; disable old theme before loading new
 (defadvice load-theme 
-  (before theme-dont-propagate activate)
+    (before theme-dont-propagate activate)
   (mapcar #'disable-theme custom-enabled-themes))
 
 ;;
@@ -253,3 +246,25 @@
         ("PROGRESS" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
         ("DONE" :background "forest green" :weight bold :box (:line-width 2 :style released-button))
 	))
+
+
+;; Magit
+(setq magit-last-seen-setup-instructions "1.4.0")
+
+;; remove?
+;;(eval-after-load 'magit
+;;  '(setq magit-process-connection-type nil))
+
+
+
+;; Name of emacs window as a buffer name
+(setq frame-title-format "%b")
+
+
+;; FUNCTIONS
+;; From Emacs Live
+(defun live-windows-hide-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
