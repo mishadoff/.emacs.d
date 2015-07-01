@@ -102,7 +102,10 @@
 
 (add-hook 'cider-mode-hook (lambda ()
 			     ;; keybindings
-			     (local-set-key (kbd "C-c t") 'cider-test-run-tests)
+			     (local-set-key (kbd "C-c M-t") 'cider-test-run-tests)
+			     ;; debugger
+			     (local-unset-key (kbd "C-c M-d"))
+			     (local-set-key (kbd "C-c M-d") 'cider-debug-defun-at-point)
 			     
 			     ))
 

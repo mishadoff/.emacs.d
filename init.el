@@ -88,7 +88,10 @@
 (show-paren-mode 1)
 
 (require 'rainbow-delimiters)
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                    :foreground 'unspecified
+                    :inherit 'error)
 
 ;; smartparens
 (add-hook 'clojure-mode-hook 'smartparens-mode)
@@ -106,7 +109,7 @@
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-mode)
 (setq nrepl-hide-special-buffers t)
-(setq cider-repl-pop-to-buffer-on-connect nil)
+;(setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
 (setq cider-popup-stacktraces-in-repl nil)
 (setq cider-repl-popup-stacktraces t)
@@ -228,7 +231,7 @@
 
 ;;
 (require 'color-theme)
-(load-theme 'zenburn t)
+(load-theme 'cyberpunk t)
 
 ;; org mode
 
@@ -268,3 +271,7 @@
   (interactive)
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
+
+;; Default font
+;; Install it in the system
+(set-default-font "Inconsolata LGC-16")

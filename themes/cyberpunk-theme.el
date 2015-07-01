@@ -11,7 +11,7 @@
 
 (custom-theme-set-faces
  'cyberpunk
- '(default ((t (:foreground "#ffffff" :background "#000000" :height 150 :width normal))))
+ '(default ((t (:foreground "#ffffff" :background "#323232" :height 150 :width normal))))
  '(blue ((t (:foreground "blue"))))
  '(bold ((t (:bold t))))
  '(bold-italic ((t (:bold t))))
@@ -33,8 +33,7 @@
  '(region ((t (:background "gray30" ))))
  '(cursor ((t (:background "#00FF44" ))))
 
- ;; Not working???
- '(show-paren-match-face ((t (:background "#4FB86B" :foreground "#FFFFFF"))))
+ '(show-paren-match-face ((t (:background "#96CBFE" :foreground "#000000"))))
  '(show-paren-mismatch-face ((t (:background "#FF0000" ))))
 
  '(gui-element ((t (:background "gray10" :foreground "#96CBFE"))))
@@ -61,7 +60,7 @@
  '(org-level-5 ((t (:foreground "#58E8D0"))))
  '(org-level-6 ((t (:foreground "#99F000"))))
  '(org-level-7 ((t (:foreground "#999999"))))
- '(org-level-9 ((t (:foreground "#FFFFFF"))))
+ '(org-level-9 ((t (:foreground "#8D8D8D"))))
 
 ;; TODO Configure
 
@@ -74,7 +73,7 @@
  '(text-cursor ((t (:background "yellow" :foreground "black"))))
  '(toolbar ((t (nil))))
  '(underline ((nil (:underline nil))))
- '(vertical-border ((t (:background "black" :foreground "gray10"))))
+ '(vertical-border ((t (:background "#323232" :foreground "gray10"))))
  
  '(magit-diff-add ((t (:foreground "green"))))
  '(magit-diff-del ((t (:foreground "red"))))
@@ -89,11 +88,11 @@
 
  ;; TODO Configure AC
 
- '(ac-completion-face ((t (:foreground "darkgray" :underline t))))
- '(ac-candidate-face ((t (:background "gray60" :foreground "black"))))
- '(ac-selection-face ((t (:background "deep pink" :foreground "black"))))
- '(ac-yasnippet-candidate-face ((t (:background "gray60" :foreground "black"))))
- '(ac-yasnippet-selection-face ((t (:background "deep pink" :foreground "black"))))
+ ;; '(ac-completion-face ((t (:foreground "darkgray" :underline t))))
+ ;; '(ac-candidate-face ((t (:background "gray60" :foreground "black"))))
+ ;; '(ac-selection-face ((t (:background "deep pink" :foreground "black"))))
+ ;; '(ac-yasnippet-candidate-face ((t (:background "gray60" :foreground "black"))))
+ ;; '(ac-yasnippet-selection-face ((t (:background "deep pink" :foreground "black"))))
  '(popup-isearch-match ((t (:background "black" :foreground "deep pink"))))
  '(popup-tip-face ((t (:background "gray10" :foreground "white"))))
  '(popup-scroll-bar-foreground-face ((t (:background "#0A0A0A"))))
@@ -105,13 +104,13 @@
 
  ;; Interactive
 
- '(ido-first-match ((t (:foreground "#33FFCC" :background "#000000"))))
- '(ido-only-match ((t (:foreground "#33FFCC" :background "#000000"))))
- '(ido-subdir ((t (:foreground "gray60" :background "black"))))
+ '(ido-first-match ((t (:foreground "#33FFCC" :background "#323232"))))
+ '(ido-only-match ((t (:foreground "#33FFCC" :background "#323232"))))
+ '(ido-subdir ((t (:foreground "gray60" :background "#323232"))))
  '(ido-indicator ((t (:foreground "black" :background "deep pink"))))
 
- '(match ((t (:foreground "#33FFCC" :background "#000000"))))
- '(minibuffer-prompt ((t (:foreground "#00FF00" :background "#000000"))))
+ '(match ((t (:foreground "#33FFCC" :background "#323232"))))
+ '(minibuffer-prompt ((t (:foreground "#00FF00" :background "#323232"))))
 
 
  '(grep-match-face ((t (:foreground "black" :background "deep pink"))))
@@ -120,15 +119,15 @@
 
  ;; Rainbow delimiters
  
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#4D4D4D"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "#3B3B3B"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "#2A2A2A"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "#4D4D4D"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "#3B3B3B"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "#2A2A2A"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "#4D4D4D"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "#3B3B3B"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "#2A2A2A"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "#8D8D8D"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "#8D8D8D"))))
  '(rainbow-delimiters-unmatched-face ((t (:foreground "#FFFFFF" :background "#FF0000"))))
 
  '(hl-sexp-face ((t (:background "grey9"))))
