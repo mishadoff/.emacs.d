@@ -275,3 +275,8 @@
 ;; Default font
 ;; Install it in the system
 (set-default-font "Inconsolata LGC-16")
+
+(require 'commons)
+
+;; Save when lost focus
+(add-hook 'focus-out-hook 'save-all)

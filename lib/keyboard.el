@@ -1,4 +1,5 @@
 (require 'codetools)
+(require 'commons)
 (require 'expand-region)
 (require 'company)
 (require 'move-text)
