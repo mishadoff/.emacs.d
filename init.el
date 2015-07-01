@@ -15,13 +15,12 @@
 ;; Set path to .emacs.d
 (setq emacs-d (file-name-directory load-file-name))
 
-;; Own plugins
+;; Custom libraries and plugins
 (add-to-list 'load-path "~/.emacs.d/lib/")
-
 ;; Setup themes path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-;; setup path for MacOS
+;; setup path for Mac OS
 (when (equal system-type 'darwin)
   (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:" (getenv "PATH")))
   (push "/opt/local/bin" exec-path))
@@ -32,7 +31,6 @@
 (defun init--install-packages ()
   (packages-install
    '(
-
      ;; clojure
      clojure-mode
      clojure-snippets
@@ -78,6 +76,7 @@
    (package-refresh-contents)
    (init--install-packages)))
 
+;; Smart Executor
 (require 'smex)
 (smex-initialize)
 
@@ -89,13 +88,14 @@
 
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;; FIXME Do we really need that piece?
 (set-face-attribute 'rainbow-delimiters-unmatched-face nil
                     :foreground 'unspecified
                     :inherit 'error)
 
 ;; smartparens
-(add-hook 'clojure-mode-hook 'smartparens-mode)
-(add-hook 'clojure-mode-hook 'auto-highlight-symbol-mode)
+(add-hook 'prog-mode-hook 'smartparens-mode)
 
 ;; default config for smartparens
 (require 'smartparens-config)
@@ -103,24 +103,19 @@
 (setq sp-highlight-wrap-overlay nil)
 (setq sp-highlight-pair-overlay nil)
 
-;; cider
 (require 'cider)
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-mode)
 (setq nrepl-hide-special-buffers t)
-;(setq cider-repl-pop-to-buffer-on-connect nil)
 (setq cider-popup-stacktraces nil)
 (setq cider-popup-stacktraces-in-repl nil)
 (setq cider-repl-popup-stacktraces t)
 (setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load nil)
-;(add-to-list 'same-window-buffer-names "*cider*")
 
 (require 'company)
-;; Enable company-mode globally
 (add-hook 'after-init-hook 'global-company-mode)
-
 
 ;; Complete after 500ms
 (setq company-idle-delay 500)
@@ -131,16 +126,15 @@
 
 ;; Emacs server
 (require 'server)
-
 ;; Avoid .emacs.d/server is unsafe on windows
 (when (and (>= emacs-major-version 23)
 	   (equal window-system 'w32))
   (defun server-ensure-safe-dir (dir) "Noop" t))
-
+;; Start serve if needed
 (unless (server-running-p)
   (server-start))
 
-;; Key bindings
+;; Load key bindings
 (require 'keyboard)
 
 ;; Interactive commands
@@ -156,16 +150,15 @@
 (setq echo-keystrokes 0.1)
 
 ;; UTF-8 please
-(setq locale-coding-system 'utf-8) ; pretty
-(set-terminal-coding-system 'utf-8) ; pretty
-(set-keyboard-coding-system 'utf-8) ; pretty
+(setq locale-coding-system 'utf-8) ; please
+(set-terminal-coding-system 'utf-8) ; please
+(set-keyboard-coding-system 'utf-8) ; please
 (set-selection-coding-system 'utf-8) ; please
-(set-language-environment 'utf-8)
-(prefer-coding-system 'utf-8) ; with sugar on top
+(set-language-environment 'utf-8) ;; please
+(prefer-coding-system 'utf-8) ; please
 
 (setq line-number-mode t)
 (setq column-number-mode t)
-
 (setq fill-column 80)
 
 ;; don't ask verbose 
@@ -216,9 +209,6 @@
 (require 'projectile)
 (add-hook 'clojure-mode-hook 'projectile-mode)
 
-;; TODO database utilities
-(require 'dbconf)
-
 ;; Sorry, too hardcore
 ;;
 ;; (require 'guru-mode)
@@ -229,48 +219,29 @@
     (before theme-dont-propagate activate)
   (mapcar #'disable-theme custom-enabled-themes))
 
-;;
+;; Set style
 (require 'color-theme)
 (load-theme 'cyberpunk t)
 
 ;; org mode
-
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
     (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
-
 (setq org-todo-keywords '((sequence "TODO" "PROGRESS" "|" "DONE")))
-
 (setq org-todo-keyword-faces
       '(("TODO" :background "red1" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
         ("PROGRESS" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
         ("DONE" :background "forest green" :weight bold :box (:line-width 2 :style released-button))
 	))
 
-
 ;; Magit
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-;; remove?
-;;(eval-after-load 'magit
-;;  '(setq magit-process-connection-type nil))
-
-
-
 ;; Name of emacs window as a buffer name
 (setq frame-title-format "%b")
-
-
-;; FUNCTIONS
-;; From Emacs Live
-(defun live-windows-hide-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (setq buffer-display-table (make-display-table))
-  (aset buffer-display-table ?\^M []))
 
 ;; Default font
 ;; Install it in the system
