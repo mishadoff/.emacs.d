@@ -280,3 +280,9 @@
 
 ;; Save when lost focus
 (add-hook 'focus-out-hook 'save-all)
+
+
+;; Do not ask about active process, I'm done
+(require 'cl)
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+           (flet ((process-list ())) ad-do-it))

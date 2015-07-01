@@ -35,4 +35,16 @@
     (re-search-forward regexp nil t)
     (replace-match "" nil nil)))
 
+;;http://timothypratley.blogspot.com/2015/07/seven-specialty-emacs-settings-with-big.html
+(defun cider-eval-expression-at-point-in-repl ()
+  (interactive)
+  (let ((form (cider-defun-at-point)))
+    ;; Strip excess whitespace
+    (while (string-match "\\`\s+\\|\n+\\'" form)
+      (setq form (replace-match "" t t form)))
+    (set-buffer (cider-get-repl-buffer))
+    (goto-char (point-max))
+    (insert form)
+    (cider-repl-return)))
+
 (provide 'codetools)

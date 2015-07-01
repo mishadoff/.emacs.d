@@ -2,6 +2,7 @@
 (require 'commons)
 (require 'expand-region)
 (require 'company)
+(require 'cider)
 (require 'move-text)
 (require 'clj-refactor)
 (require 'smartparens)
@@ -74,8 +75,6 @@
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c w") 'whack-whitespace)
 (global-set-key (kbd "C-c l") 'goto-line)
-;; it's possible to use jack-in as common functionality for other languages as well
-;(global-set-key (kbd "C-c j") 'cider-jack-in)
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c i") 'indent-region)
 
@@ -97,20 +96,14 @@
 			       (local-set-key (kbd "C-c h t") 'hs-toggle-hiding)
 			       (local-set-key (kbd "C-c h s") 'hs-show-all)
 			       (local-set-key (kbd "C-c h h") 'hs-hide-all)
-
-			       
 			       ))
 
-(add-hook 'cider-mode-hook (lambda ()
-			     ;; keybindings
-			     (local-set-key (kbd "C-c M-t") 'cider-test-run-tests)
-			     ;; debugger
-			     (local-unset-key (kbd "C-c M-d"))
-			     (local-set-key (kbd "C-c M-d") 'cider-debug-defun-at-point)
-			     
-			     ))
+(define-key cider-mode-map (kbd "C-c M-e") 'cider-eval-expression-at-point-in-repl)
+(define-key cider-mode-map (kbd "C-c M-t") 'cider-test-run-tests)
+(define-key cider-mode-map (kbd "C-c M-d") 'cider-debug-defun-at-point)
+(define-key cider-mode-map (kbd "C-c M-c") 'cider-repl-clear-buffer)
+(define-key cider-mode-map (kbd "C-c M-j") 'cider-jack-in-command)
 
-;; TODO MORE CIDER BINDINGS
 
 ;; smartparens
 
