@@ -207,7 +207,7 @@
 
 ;; Projectile mode
 (require 'projectile)
-(add-hook 'clojure-mode-hook 'projectile-mode)
+(projectile-global-mode)
 
 ;; Sorry, too hardcore
 ;;
