@@ -64,6 +64,7 @@
      color-theme
      rainbow-mode
      zenburn-theme
+     column-marker
      auto-highlight-symbol
 
      ;; hardcore
@@ -160,6 +161,10 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 (setq fill-column 80)
+
+(require 'column-marker)
+(add-hook 'prog-mode-hook (lambda () (interactive) (column-marker-1 80)))
+
 
 ;; don't ask verbose 
 (fset 'yes-or-no-p 'y-or-n-p)

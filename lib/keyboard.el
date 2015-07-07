@@ -61,6 +61,7 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x m") 'menu-bar-mode)
 (global-set-key (kbd "C-x w") 'browse-url-at-point)
+(global-set-key (kbd "C-x C-w") 'open-in-chrome)
 (global-set-key (kbd "C-x n") 'ido-switch-buffer)
 (global-set-key (kbd "C-x C-n") 'ido-switch-buffer)
 (global-set-key (kbd "C-x j") 'ace-jump-mode)

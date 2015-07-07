@@ -6,7 +6,17 @@
       (find-file file))))
 
 (defun save-all ()
+  "Same unsaved buffers"
   (interactive)
   (save-some-buffers t))
 
+(defun open-in-chrome ()
+  (interactive)
+  (when buffer-file-name
+    (shell-command (concat
+		    "open -a \"Google Chrome\""
+                    " "
+                    (shell-quote-argument buffer-file-name)))))
+
 (provide 'commons)
+
