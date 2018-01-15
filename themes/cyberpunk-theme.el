@@ -96,7 +96,7 @@
  '(popup-isearch-match ((t (:background "black" :foreground "deep pink"))))
  '(popup-tip-face ((t (:background "gray10" :foreground "white"))))
  '(popup-scroll-bar-foreground-face ((t (:background "#0A0A0A"))))
- '(popup-scroll-bar-background-face ((t (:background "gray10"))))
+ '(popup-scroll-bar-background-face ((t (:background "#"))))
 
  '(window-number-face ((t (:background "grey10" :foreground "#4c83ff"))))
 

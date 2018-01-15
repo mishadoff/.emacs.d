@@ -1,4 +1,11 @@
 ;; Disable menu, toolbar and scrollbar
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -97,6 +104,7 @@
 
 ;; smartparens
 (add-hook 'prog-mode-hook 'smartparens-mode)
+(add-hook 'prog-mode-hook 'font-lock-comment-annotations)
 
 ;; default config for smartparens
 (require 'smartparens-config)
@@ -105,8 +113,8 @@
 (setq sp-highlight-pair-overlay nil)
 
 (require 'cider)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-(add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
+;;(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+;;(add-hook 'cider-repl-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'smartparens-mode)
 (setq nrepl-hide-special-buffers t)
 (setq cider-popup-stacktraces nil)
@@ -131,7 +139,8 @@
 (when (and (>= emacs-major-version 23)
 	   (equal window-system 'w32))
   (defun server-ensure-safe-dir (dir) "Noop" t))
-;; Start serve if needed
+
+;; Start server if needed
 (unless (server-running-p)
   (server-start))
 
@@ -226,7 +235,7 @@
 
 ;; Set style
 (require 'color-theme)
-(load-theme 'cyberpunk t)
+(load-theme 'whiteboard t)
 
 ;; org mode
 (defun org-summary-todo (n-done n-not-done)
@@ -247,6 +256,9 @@
 
 ;; Name of emacs window as a buffer name
 (setq frame-title-format "%b")
+
+;; Open everything in existing frame
+(setq ns-pop-up-frames nil)
 
 ;; Default font
 ;; Install it in the system
