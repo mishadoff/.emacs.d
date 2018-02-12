@@ -66,12 +66,11 @@
      smex       ;; smart execution engine
      expand-region ;; expandable selection
      ace-jump-mode ;; fast symbol selection
-
+     
      ;; style
-     color-theme
+     ;;color-theme
      rainbow-mode
      zenburn-theme
-     column-marker
      auto-highlight-symbol
 
      ;; hardcore
@@ -119,6 +118,8 @@
 (setq nrepl-hide-special-buffers t)
 (setq cider-popup-stacktraces nil)
 (setq cider-popup-stacktraces-in-repl nil)
+(setq cider-auto-select-error-buffer nil)
+(setq cider-show-error-buffer nil)
 (setq cider-repl-popup-stacktraces t)
 (setq cider-repl-use-clojure-font-lock t)
 (setq cider-prompt-save-file-on-load nil)
@@ -171,8 +172,8 @@
 (setq column-number-mode t)
 (setq fill-column 80)
 
-(require 'column-marker)
-(add-hook 'prog-mode-hook (lambda () (interactive) (column-marker-1 80)))
+;;(require 'column-marker)
+;;(add-hook 'prog-mode-hook (lambda () (interactive) (column-marker-1 80)))
 
 
 ;; don't ask verbose 
@@ -234,8 +235,8 @@
   (mapcar #'disable-theme custom-enabled-themes))
 
 ;; Set style
-(require 'color-theme)
-(load-theme 'whiteboard t)
+;;(require 'color-theme)
+(load-theme 'adwaita t)
 
 ;; org mode
 (defun org-summary-todo (n-done n-not-done)
@@ -274,3 +275,17 @@
 (require 'cl)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
            (flet ((process-list ())) ad-do-it))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("fbc7768f5edfb242b718a2a24a0b382ef599790e65b186cbd6b7e886d481286f" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

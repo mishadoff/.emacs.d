@@ -42,6 +42,7 @@
 ;; move text
 (global-set-key (kbd "<C-S-up>") 'move-text-up)
 (global-set-key (kbd "<C-S-down>") 'move-text-down)
+(global-set-key (kbd "<S-SPC>") 'set-mark-command)
 
 ;; buffer positional switch
 (global-set-key (kbd "S-<right>") 'windmove-right)
@@ -64,7 +65,7 @@
 (global-set-key (kbd "C-x C-w") 'open-in-chrome)
 (global-set-key (kbd "C-x n") 'ido-switch-buffer)
 (global-set-key (kbd "C-x C-n") 'ido-switch-buffer)
-(global-set-key (kbd "C-x j") 'ace-jump-mode)
+(global-set-key (kbd "M-j") 'ace-jump-mode)
 (global-set-key (kbd "C-x f") 'ido-find-file)
 (global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
 
@@ -75,6 +76,7 @@
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c d") 'duplicate-line)
 (global-set-key (kbd "C-c w") 'whack-whitespace)
+(global-set-key (kbd "C-c k") 'kill-whole-line)
 (global-set-key (kbd "C-c l") 'goto-line)
 (global-set-key (kbd "C-c f") 'indent-region)
 (global-set-key (kbd "C-c i") 'indent-region)
@@ -104,6 +106,7 @@
 (define-key cider-mode-map (kbd "C-c M-d") 'cider-debug-defun-at-point)
 (define-key cider-mode-map (kbd "C-c M-c") 'cider-repl-clear-buffer)
 (define-key cider-mode-map (kbd "C-c M-j") 'cider-jack-in-command)
+(define-key cider-mode-map (kbd "C-c M-l") 'cider-eval-buffer)
 
 
 ;; smartparens
