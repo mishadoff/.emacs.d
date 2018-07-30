@@ -1,39 +1,63 @@
-Configuration for Emacs 24
+Configuration for Emacs 25.3
 
-# General Functionality
+# Install
+
+```
+# Install Emacs
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
+
+# Copy configuration 
+cd ~
+git clone git@github.com:mishadoff/.emacs.d.git
+```
+
+# Basic Mode (C-)
 
 General functionality available globally for every buffer.
+Basic navigation and editing hotkeys.
 
-** TODO M- prefix in the same line **
-
-* `C-a` st[A]rt of the line
-* `C-b` [B]ackward character
-* `C-c` Prefix for [[C]ode Mode](#code)
-* `C-d` [D]elete symbol at right
-* `C-e` [E]nd of the line
-* `C-f` [F]orward character
-* `C-g` stop interactive input
-* `C-h` backspace
-* `C-i` **AVAILABLE**
-* `C-j` new line
-* `C-k` [K]ill line till the end
-* `C-l` **AVAILABLE**
-* `C-m` new line
-* `C-n` [N]ext line
-* `C-o` new line but don't move cursor
-* `C-p` [P]revious line
+* `C-a` - move cursor to the start of the line
+* `C-b` - move cursor one word backward
+* `C-c` - prefix, reserved for [Code Mode](#code-mode)
+* `C-d` - delete char (forward)
+* `C-e` - move cursor to the end of line
+* `C-f` - move cursor one word forward
+* `C-g` - Emacs Escape, stop interactive input
+* `C-h` - delete char backward (a.k.a. backspace)
+* `C-i`/`C-j`/`C-k`/`C-l` - arrows
+* `C-m`/`C-n` - enter or return
+* `C-o` **AVAILABLE**
+* `C-p` **AVAILABLE**
 * `C-q` **AVAILABLE**
-* `C-r` [R]everse search
-* `C-s` [S]earch forward
-* `C-t` [T]ranspose symbols
-* `C-u` [U]ber run prefix, run action number of times
+* `C-r` - replace in current buffer or selectipn
+* `C-s` - search in current buffer
+* `C-t` - prefix, reserved for [Tool Mode](#tool-mode)
+* `C-u` - run action number of times
 * `C-v` **AVAILABLE**
-* `C-w` cut region (*as standard C-x*)
-* `C-x` prefix for [e[X]tended functionality](#ext)
-* `C-y` insert (*as standard C-v*)
-* `C-z` undo
-* `C-=` [expand region](#mode_expand)
-* `C-.` auto-complete backed by [company mode](#mode_company) 
+* `C-w` - cut region (*as standard C-x*)
+* `C-x` - prefix, reserved for [Execute Mode](#execute-mode)
+* `C-y` - insert (*as standard C-v*)
+* `C-z` - undo
+* `C-=` - extend selection
+* `C--` - shrink selection
+* `C-[`/`C-]` - escape
+* `C-.` - trigger autocomplete
+* `C-SPACE` - start/end sticky selection
+
+# Alternative Keys (C-M-)
+
+With extra meta key, slightly changes or improves
+the functionali of basic keys.
+
+`C-M-a` - move cursor to the start of buffer
+`C-M-b` - move cursor one function backward
+`C-M-c` - **AVAILABLE**
+`C-M-d` - delete line from cursor to the end of line
+`C-M-e` - move cursor to the end of buffer
+`C-M-f` - move cursor one function forward
+
+# Popular
 
 * `M-a` st[A]rt of the paragraph
 * `M-b` [B]ackward word

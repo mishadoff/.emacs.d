@@ -71,10 +71,8 @@
      ;;color-theme
      rainbow-mode
      zenburn-theme
+     spacemacs-theme
      auto-highlight-symbol
-
-     ;; hardcore
-     guru-mode
      )))
 
 (condition-case nil
@@ -236,7 +234,7 @@
 
 ;; Set style
 ;;(require 'color-theme)
-(load-theme 'adwaita t)
+(load-theme 'spacemacs-light t)
 
 ;; org mode
 (defun org-summary-todo (n-done n-not-done)
@@ -249,7 +247,7 @@
 (setq org-todo-keyword-faces
       '(("TODO" :background "red1" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
         ("PROGRESS" :background "orange" :foreground "black" :weight bold :box (:line-width 2 :style released-button))
-        ("DONE" :background "forest green" :weight bold :box (:line-width 2 :style released-button))
+        ("DONE" :background "forest green" :foreground "white" :weight bold :box (:line-width 2 :style released-button))
 	))
 
 ;; Magit
@@ -263,29 +261,18 @@
 
 ;; Default font
 ;; Install it in the system
-(set-default-font "Inconsolata LGC-16")
+;; (set-default-font "Fira Code")
+(set-frame-font "Fira Code 16")
 
 (require 'commons)
 
 ;; Save when lost focus
 (add-hook 'focus-out-hook 'save-all)
 
-
 ;; Do not ask about active process, I'm done
 (require 'cl)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
            (flet ((process-list ())) ad-do-it))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("fbc7768f5edfb242b718a2a24a0b382ef599790e65b186cbd6b7e886d481286f" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+
+

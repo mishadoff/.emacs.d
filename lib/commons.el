@@ -19,4 +19,3 @@
                     (shell-quote-argument buffer-file-name)))))
 
 (provide 'commons)
-
