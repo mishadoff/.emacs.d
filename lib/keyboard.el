@@ -222,17 +222,20 @@
 (add-hook 'org-mode-hook 
           (lambda ()
 	    ;; configure own keybinfings
-	    (local-set-key (kbd "<C-S-down>") 'org-move-subtree-down)
-	    (local-set-key (kbd "<C-S-up>") 'org-move-subtree-up)
+	    (local-set-key (kbd "C-M-k") 'org-move-subtree-down)
+	    (local-set-key (kbd "C-M-i") 'org-move-subtree-up)
 	    (local-set-key (kbd "C-<down>") 'org-forward-element)
 	    (local-set-key (kbd "C-<up>") 'org-backward-element)
-	    (local-set-key (kbd "M-<up>") 'org-up-element)
-	    (local-set-key (kbd "M-<down>") 'outline-next-visible-heading)
+	  
+	    (local-set-key (kbd "M-<down>") 'org-move-subtree-down)
+	    (local-set-key (kbd "M-<up>") 'org-move-subtree-up)
+
 	    ;; prefixed keybindings C-o
 	    (local-set-key (kbd "C-o k") 'org-cut-subtree)
 	    (local-set-key (kbd "C-o n") 'org-narrow-to-subtree)
 	    (local-set-key (kbd "C-o s") 'org-sparse-tree)
 	    (local-set-key (kbd "C-o w") 'widen)
+	    (local-set-key (kbd "C-o t") 'org-todo)
 	    
 	    (local-set-key (kbd "C-o e") 'next-error)
 	    (local-set-key (kbd "C-o r") 'previous-error)
